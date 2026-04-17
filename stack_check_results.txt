@@ -1,0 +1,42 @@
+=== NEW STACK COVERAGE ===
+OK  ASP.NET Core 10 => design.md, requirements.md, tasks.md
+OK  Dapper => design.md, tasks.md
+OK  CQRS => design.md, tasks.md
+OK  MediatR => design.md, tasks.md
+OK  FluentValidation => design.md, requirements.md, tasks.md
+OK  AutoMapper => design.md, tasks.md
+OK  Hangfire => design.md, tasks.md
+OK  PostgreSQL => design.md, requirements.md, tasks.md
+OK  Redis => design.md, requirements.md, tasks.md
+OK  Elasticsearch => design.md, requirements.md, tasks.md
+OK  ClickHouse => design.md, requirements.md, tasks.md
+OK  Hot Chocolate => design.md, requirements.md, tasks.md
+OK  SignalR => design.md, requirements.md, tasks.md
+OK  gRPC => design.md, requirements.md, tasks.md
+OK  MassTransit => design.md, requirements.md, tasks.md
+OK  RabbitMQ => design.md, requirements.md, tasks.md
+OK  React => design.md, requirements.md, tasks.md
+OK  TypeScript => design.md, requirements.md, tasks.md
+OK  Ant Design => design.md, requirements.md, tasks.md
+OK  Redux Toolkit => design.md, requirements.md, tasks.md
+OK  Apache ECharts => design.md, requirements.md, tasks.md
+OK  Keycloak => design.md, requirements.md, tasks.md
+OK  JWT => design.md, requirements.md, tasks.md
+OK  OpenTelemetry => design.md, requirements.md, tasks.md
+OK  Prometheus => design.md, requirements.md, tasks.md
+OK  Grafana => design.md, requirements.md, tasks.md
+OK  Terraform => design.md, requirements.md, tasks.md
+OK  Kubernetes => design.md, requirements.md, tasks.md
+OK  GitHub Actions => design.md, requirements.md, tasks.md
+=== LEGACY REMNANTS ===
+FOUND AdminLTE => tasks.md:240
+FOUND jQuery => tasks.md:243
+FOUND Select2 => tasks.md:243
+FOUND SweetAlert => tasks.md:243
+FOUND Moment.js => tasks.md:243
+CLEAN ASP.NET Core Identity
+CLEAN cookie-based
+CLEAN SQL Server 2019
+CLEAN ASP.NET MVC 5
+FOUND Quartz.NET => tasks.md:581
+CLEAN ASP.NET Core MVC or
