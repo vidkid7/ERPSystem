@@ -32,6 +32,8 @@ public class ERPDbContext : DbContext, IApplicationDbContext
     public DbSet<DocumentType> DocumentTypes => Set<DocumentType>();
     public DbSet<EntityNumbering> EntityNumberings => Set<EntityNumbering>();
     public DbSet<UserDefinedField> UserDefinedFields => Set<UserDefinedField>();
+    public DbSet<Currency> Currencies => Set<Currency>();
+    public DbSet<ExchangeRate> ExchangeRates => Set<ExchangeRate>();
 
     // ── Security ─────────────────────────────────────────────────────────
     public DbSet<User> Users => Set<User>();
@@ -53,6 +55,7 @@ public class ERPDbContext : DbContext, IApplicationDbContext
     public DbSet<ODC> ODCs => Set<ODC>();
     public DbSet<BankGuarantee> BankGuarantees => Set<BankGuarantee>();
     public DbSet<LetterOfCredit> LettersOfCredit => Set<LetterOfCredit>();
+    public DbSet<BankReconciliation> BankReconciliations => Set<BankReconciliation>();
 
     // ── Inventory ────────────────────────────────────────────────────────
     public DbSet<Product> Products => Set<Product>();
@@ -108,8 +111,9 @@ public class ERPDbContext : DbContext, IApplicationDbContext
 
     // ── Task ─────────────────────────────────────────────────────────────
     public DbSet<TaskItem> TaskItems => Set<TaskItem>();
+    public DbSet<TaskComment> TaskComments => Set<TaskComment>();
 
-    // ── Finance ──────────────────────────────────────────────────────────
+    // ── Finance──────────────────────────────────────────────────────────
     public DbSet<Loan> Loans => Set<Loan>();
     public DbSet<LoanEMI> LoanEMIs => Set<LoanEMI>();
     public DbSet<VehicleDetail> VehicleDetails => Set<VehicleDetail>();

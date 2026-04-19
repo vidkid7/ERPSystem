@@ -35,6 +35,8 @@ public interface IApplicationDbContext
     DbSet<CostClass> CostClasses { get; }
     DbSet<DocumentType> DocumentTypes { get; }
     DbSet<EntityNumbering> EntityNumberings { get; }
+    DbSet<Currency> Currencies { get; }
+    DbSet<ExchangeRate> ExchangeRates { get; }
 
     // Account
     DbSet<Ledger> Ledgers { get; }
@@ -43,6 +45,11 @@ public interface IApplicationDbContext
     DbSet<VoucherDetail> VoucherDetails { get; }
     DbSet<Customer> Customers { get; }
     DbSet<Vendor> Vendors { get; }
+    DbSet<PDC> PDCs { get; }
+    DbSet<ODC> ODCs { get; }
+    DbSet<BankGuarantee> BankGuarantees { get; }
+    DbSet<LetterOfCredit> LettersOfCredit { get; }
+    DbSet<BankReconciliation> BankReconciliations { get; }
 
     // Inventory
     DbSet<Product> Products { get; }
@@ -71,6 +78,7 @@ public interface IApplicationDbContext
 
     // Task
     DbSet<TaskItem> TaskItems { get; }
+    DbSet<TaskComment> TaskComments { get; }
 
     // Finance
     DbSet<Loan> Loans { get; }
@@ -86,6 +94,11 @@ public interface IApplicationDbContext
 
     // Loyalty
     DbSet<MembershipPoint> MembershipPoints { get; }
+
+    // Manufacturing
+    DbSet<BOM> BOMs { get; }
+    DbSet<BOMDetail> BOMDetails { get; }
+    DbSet<ProductionOrder> ProductionOrders { get; }
 
     // Lab
     DbSet<SampleCollection> SampleCollections { get; }

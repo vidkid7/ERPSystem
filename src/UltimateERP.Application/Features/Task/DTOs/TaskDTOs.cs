@@ -35,3 +35,26 @@ public class UpdateTaskStatusDto
     public int TaskId { get; set; }
     public string Status { get; set; } = string.Empty;
 }
+
+public class TaskCommentDto
+{
+    public int Id { get; set; }
+    public int TaskItemId { get; set; }
+    public string Comment { get; set; } = string.Empty;
+    public int? CommentedById { get; set; }
+    public DateTime CommentDate { get; set; }
+    public bool IsActive { get; set; }
+}
+
+public class AssignTaskDto
+{
+    public int TaskId { get; set; }
+    public int AssignedToId { get; set; }
+}
+
+public class AddTaskCommentDto
+{
+    public int TaskItemId { get; set; }
+    public string Comment { get; set; } = string.Empty;
+    public int? CommentedById { get; set; }
+}

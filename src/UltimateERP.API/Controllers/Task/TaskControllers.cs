@@ -36,4 +36,36 @@ public class TaskController : ControllerBase
         var result = await _mediator.Send(new UpdateTaskStatusCommand(dto));
         return result.IsSuccess ? Ok(result) : BadRequest(result);
     }
+
+    [HttpPut("{id}/assign")]
+    public async Task<ActionResult<ApiResponse<TaskItemDto>>> AssignTask(int id, [FromBody] AssignTaskDto dto)
+    {
+        dto.TaskId = id;
+        var result = await _mediator.Send(new AssignTaskCommand(dto));
+        return result.IsSuccess ? Ok(result) : BadRequest(result);
+    }
+
+    [HttpPost("{id}/comments")]
+    public async Task<ActionResult<ApiResponse<TaskCommentDto>>> AddComment(int id, [FromBody] AddTaskCommentDto dto)
+    {
+        dto.TaskItemId = id;
+        var result = await _mediator.Send(new AddTaskCommentCommand(dto));
+        return result.IsSuccess ? Created("", result) : BadRequest(result);
+    }
+
+    [HttpGet("by-assignee/{assignedToId}")]
+    public async Task<ActionResult<ApiResponse<List<TaskItemDto>>>> GetByAssignee(
+        int assignedToId, [FromQuery] int page = 1, [FromQuery] int pageSize = 20)
+        => Ok(await _mediator.Send(new GetTasksByAssigneeQuery(assignedToId, page, pageSize)));
+
+    [HttpGet("by-date-range")]
+    public async Task<ActionResult<ApiResponse<List<TaskItemDto>>>> GetByDateRange(
+        [FromQuery] DateTime from, [FromQuery] DateTime to,
+        [FromQuery] int page = 1, [FromQuery] int pageSize = 20)
+        => Ok(await _mediator.Send(new GetTasksByDateRangeQuery(from, to, page, pageSize)));
+
+    [HttpGet("overdue")]
+    public async Task<ActionResult<ApiResponse<List<TaskItemDto>>>> GetOverdue(
+        [FromQuery] int page = 1, [FromQuery] int pageSize = 20)
+        => Ok(await _mediator.Send(new GetOverdueTasksQuery(page, pageSize)));
 }

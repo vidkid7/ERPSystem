@@ -15,5 +15,7 @@ public class TaskMappingProfile : Profile
                 s.AssignedBy != null ? s.AssignedBy.Name : null))
             .ForMember(d => d.Priority, o => o.MapFrom(s => s.Priority.ToString()))
             .ForMember(d => d.Status, o => o.MapFrom(s => s.Status.ToString()));
+
+        CreateMap<TaskComment, TaskCommentDto>();
     }
 }

@@ -78,3 +78,69 @@ public class UpdateTaskStatusHandler : IRequestHandler<UpdateTaskStatusCommand, 
         return ApiResponse<TaskItemDto>.Success(_mapper.Map<TaskItemDto>(task), "Task status updated");
     }
 }
+
+// Assign Task
+public record AssignTaskCommand(AssignTaskDto Dto) : IRequest<ApiResponse<TaskItemDto>>;
+
+public class AssignTaskValidator : AbstractValidator<AssignTaskCommand>
+{
+    public AssignTaskValidator()
+    {
+        RuleFor(x => x.Dto.TaskId).GreaterThan(0);
+        RuleFor(x => x.Dto.AssignedToId).GreaterThan(0);
+    }
+}
+
+public class AssignTaskHandler : IRequestHandler<AssignTaskCommand, ApiResponse<TaskItemDto>>
+{
+    private readonly IApplicationDbContext _db;
+    private readonly IMapper _mapper;
+    public AssignTaskHandler(IApplicationDbContext db, IMapper mapper) { _db = db; _mapper = mapper; }
+
+    public async System.Threading.Tasks.Task<ApiResponse<TaskItemDto>> Handle(AssignTaskCommand request, CancellationToken ct)
+    {
+        var task = await _db.TaskItems.FindAsync(new object[] { request.Dto.TaskId }, ct);
+        if (task is null) return ApiResponse<TaskItemDto>.Failure("Task not found");
+
+        task.AssignedToId = request.Dto.AssignedToId;
+        await _db.SaveChangesAsync(ct);
+        return ApiResponse<TaskItemDto>.Success(_mapper.Map<TaskItemDto>(task), "Task assigned");
+    }
+}
+
+// Add Task Comment
+public record AddTaskCommentCommand(AddTaskCommentDto Dto) : IRequest<ApiResponse<TaskCommentDto>>;
+
+public class AddTaskCommentValidator : AbstractValidator<AddTaskCommentCommand>
+{
+    public AddTaskCommentValidator()
+    {
+        RuleFor(x => x.Dto.TaskItemId).GreaterThan(0);
+        RuleFor(x => x.Dto.Comment).NotEmpty().MaximumLength(2000);
+    }
+}
+
+public class AddTaskCommentHandler : IRequestHandler<AddTaskCommentCommand, ApiResponse<TaskCommentDto>>
+{
+    private readonly IApplicationDbContext _db;
+    private readonly IMapper _mapper;
+    public AddTaskCommentHandler(IApplicationDbContext db, IMapper mapper) { _db = db; _mapper = mapper; }
+
+    public async System.Threading.Tasks.Task<ApiResponse<TaskCommentDto>> Handle(AddTaskCommentCommand request, CancellationToken ct)
+    {
+        var task = await _db.TaskItems.FindAsync(new object[] { request.Dto.TaskItemId }, ct);
+        if (task is null) return ApiResponse<TaskCommentDto>.Failure("Task not found");
+
+        var comment = new TaskComment
+        {
+            TaskItemId = request.Dto.TaskItemId,
+            Comment = request.Dto.Comment,
+            CommentedById = request.Dto.CommentedById,
+            CommentDate = DateTime.UtcNow
+        };
+
+        _db.TaskComments.Add(comment);
+        await _db.SaveChangesAsync(ct);
+        return ApiResponse<TaskCommentDto>.Success(_mapper.Map<TaskCommentDto>(comment), "Comment added");
+    }
+}

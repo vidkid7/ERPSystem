@@ -17,4 +17,5 @@ public class TaskItem : BaseEntity
     public Enums.TicketPriority Priority { get; set; }
     public Enums.TaskStatus Status { get; set; }
     public DateTime? CompletionDate { get; set; }
+    public ICollection<TaskComment> Comments { get; set; } = new List<TaskComment>();
 }
