@@ -57,5 +57,10 @@ public interface IApplicationDbContext
     DbSet<OPDTicket> OPDTickets { get; }
     DbSet<IPDAdmission> IPDAdmissions { get; }
 
+    // Service
+    DbSet<Domain.Entities.Service.ComplaintTicket> ComplaintTickets { get; }
+    DbSet<Domain.Entities.Service.JobCard> JobCards { get; }
+    DbSet<Domain.Entities.Service.ServiceAppointment> ServiceAppointments { get; }
+
     Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
 }
