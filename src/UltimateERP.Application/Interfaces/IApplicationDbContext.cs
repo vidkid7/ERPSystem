@@ -6,6 +6,7 @@ using UltimateERP.Domain.Entities.Finance;
 using UltimateERP.Domain.Entities.HMS;
 using UltimateERP.Domain.Entities.HR;
 using UltimateERP.Domain.Entities.Inventory;
+using UltimateERP.Domain.Entities.KYC;
 using UltimateERP.Domain.Entities.Lab;
 using UltimateERP.Domain.Entities.Loyalty;
 using UltimateERP.Domain.Entities.Security;
@@ -116,6 +117,12 @@ public interface IApplicationDbContext
     DbSet<DairySalesInvoice> DairySalesInvoices { get; }
     DbSet<TeaPurchaseInvoice> TeaPurchaseInvoices { get; }
     DbSet<PetrolPumpTransaction> PetrolPumpTransactions { get; }
+
+    // KYC
+    DbSet<KYCRecord> KYCRecords { get; }
+
+    // Account - Fiscal Year
+    DbSet<FiscalYear> FiscalYears { get; }
 
     Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
 }
