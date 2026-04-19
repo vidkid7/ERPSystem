@@ -25,3 +25,10 @@ public class RedeemPointsDto
     public int CustomerId { get; set; }
     public decimal Points { get; set; }
 }
+
+public class PointsBalanceDto
+{
+    public int CustomerId { get; set; }
+    public string? CustomerName { get; set; }
+    public decimal CurrentBalance { get; set; }
+}

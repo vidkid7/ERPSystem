@@ -34,4 +34,14 @@ public class LoyaltyController : ControllerBase
         var result = await _mediator.Send(new RedeemPointsCommand(dto));
         return result.IsSuccess ? Ok(result) : BadRequest(result);
     }
+
+    [HttpGet("{customerId}/balance")]
+    public async Task<ActionResult<ApiResponse<PointsBalanceDto>>> GetPointsBalance(int customerId)
+        => Ok(await _mediator.Send(new GetPointsBalanceQuery(customerId)));
+
+    [HttpGet("{customerId}/history")]
+    public async Task<ActionResult<ApiResponse<List<MembershipPointDto>>>> GetPointsHistory(
+        int customerId, [FromQuery] DateTime? from, [FromQuery] DateTime? to,
+        [FromQuery] int page = 1, [FromQuery] int pageSize = 20)
+        => Ok(await _mediator.Send(new GetPointsHistoryQuery(customerId, from, to, page, pageSize)));
 }
