@@ -528,6 +528,207 @@ import LoyaltySalesSummaryPage from '../pages/loyalty/LoyaltySalesSummaryPage';
 import MembershipPointSummaryPage from '../pages/loyalty/MembershipPointSummaryPage';
 import JobEntityPage from '../pages/jobs/JobEntityPage';
 
+// --- Round 2 New Pages ---
+import AreaMasterFormPage from '../pages/account/AreaMasterFormPage';
+import AreaMasterPage from '../pages/account/AreaMasterPage';
+import BankFormPage from '../pages/account/BankFormPage';
+import BankListPage from '../pages/account/BankListPage';
+import BillsPayablePage from '../pages/account/BillsPayablePage';
+import BillsReceivablePage from '../pages/account/BillsReceivablePage';
+import CashAndBankBookPage from '../pages/account/CashAndBankBookPage';
+import CashBankLedgerVoucherPage from '../pages/account/CashBankLedgerVoucherPage';
+import ContraVoucherListPage from '../pages/account/ContraVoucherListPage';
+import CostCategoriesReportPage from '../pages/account/CostCategoriesReportPage';
+import CostCategoryFormPage from '../pages/account/CostCategoryFormPage';
+import CostCenterAnalysisPage from '../pages/account/CostCenterAnalysisPage';
+import CostCenterFormPage from '../pages/account/CostCenterFormPage';
+import CostCenterVoucherPage from '../pages/account/CostCenterVoucherPage';
+import CurrencyFormPage from '../pages/account/CurrencyFormPage';
+import CustomerFormPage from '../pages/account/CustomerFormPage';
+import CustomerReportPage from '../pages/account/CustomerReportPage';
+import DebtorsCreditorsRoutePage from '../pages/account/DebtorsCreditorsRoutePage';
+import DebtorsCreditorsTypePage from '../pages/account/DebtorsCreditorsTypePage';
+import DepartmentFormPage from '../pages/account/DepartmentFormPage';
+import FreightTypeFormPage from '../pages/account/FreightTypeFormPage';
+import GroupWiseReportPage from '../pages/account/GroupWiseReportPage';
+import IncomeExpenditurePage from '../pages/account/IncomeExpenditurePage';
+import JournalVoucherListPage from '../pages/account/JournalVoucherListPage';
+import LCDetailsReportPage from '../pages/account/LCDetailsReportPage';
+import LedgerCategoryPage from '../pages/account/LedgerCategoryPage';
+import LedgerChannelPage from '../pages/account/LedgerChannelPage';
+import LedgerDayBookPage from '../pages/account/LedgerDayBookPage';
+import LedgerGroupFormPage from '../pages/account/LedgerGroupFormPage';
+import LedgerOpeningPage from '../pages/account/LedgerOpeningPage';
+import LedgerSubLedgerPage from '../pages/account/LedgerSubLedgerPage';
+import MulLedgerVoucherPage from '../pages/account/MulLedgerVoucherPage';
+import NarrationFormPage from '../pages/account/NarrationFormPage';
+import OneLakhAbovePurchasePage from '../pages/account/OneLakhAbovePurchasePage';
+import OneLakhAboveSalesPage from '../pages/account/OneLakhAboveSalesPage';
+import OpenDatedChequePage from '../pages/account/OpenDatedChequePage';
+import PartyWiseDuesBillListPage from '../pages/account/PartyWiseDuesBillListPage';
+import PaymentTermsFormPage from '../pages/account/PaymentTermsFormPage';
+import PaymentVoucherListPage from '../pages/account/PaymentVoucherListPage';
+import PostDatedChequePage from '../pages/account/PostDatedChequePage';
+import ProfitAndLossPage from '../pages/account/ProfitAndLossPage';
+import ProjectFormPage from '../pages/account/ProjectFormPage';
+import PurchaseReturnVatRegisterPage from '../pages/account/PurchaseReturnVatRegisterPage';
+import PurchaseVatRegisterPage from '../pages/account/PurchaseVatRegisterPage';
+import ReceiptVoucherListPage from '../pages/account/ReceiptVoucherListPage';
+import SalesmanCommissionPage from '../pages/account/SalesmanCommissionPage';
+import SalesmanFormPage from '../pages/account/SalesmanFormPage';
+import SalesReturnVatRegisterPage from '../pages/account/SalesReturnVatRegisterPage';
+import SalesVatRegisterPage from '../pages/account/SalesVatRegisterPage';
+import TDSSummaryPage from '../pages/account/TDSSummaryPage';
+import TDSVatSummaryPage from '../pages/account/TDSVatSummaryPage';
+import VatSummaryPage from '../pages/account/VatSummaryPage';
+import VendorFormPage from '../pages/account/VendorFormPage';
+import VendorReportPage from '../pages/account/VendorReportPage';
+import VoucherModeFormPage from '../pages/account/VoucherModeFormPage';
+import AssetAuditPage from '../pages/assets/AssetAuditPage';
+import AssetBarcodeListPage from '../pages/assets/AssetBarcodeListPage';
+import AssetCategoryFormPage from '../pages/assets/AssetCategoryFormPage';
+import AssetDepreciationPage from '../pages/assets/AssetDepreciationPage';
+import AssetDisposalReportPage from '../pages/assets/AssetDisposalReportPage';
+import AssetFormPage2 from '../pages/assets/AssetFormPage2';
+import AssetGroupFormPage from '../pages/assets/AssetGroupFormPage';
+import AssetInsurancePage from '../pages/assets/AssetInsurancePage';
+import AssetLocationPage from '../pages/assets/AssetLocationPage';
+import AssetMaintenancePage from '../pages/assets/AssetMaintenancePage';
+import AssetReturnReportPage from '../pages/assets/AssetReturnReportPage';
+import AssetSchedulePage from '../pages/assets/AssetSchedulePage';
+import AssetTransferReportPage from '../pages/assets/AssetTransferReportPage';
+import BannerFormPage from '../pages/cms/BannerFormPage';
+import CMSDashboardPage from '../pages/cms/CMSDashboardPage';
+import EventFormPage from '../pages/cms/EventFormPage';
+import EventTypeFormPage from '../pages/cms/EventTypeFormPage';
+import GalleryFormPage from '../pages/cms/GalleryFormPage';
+import NoticeFormPage from '../pages/cms/NoticeFormPage';
+import ProductDisplayFormPage from '../pages/cms/ProductDisplayFormPage';
+import SliderFormPage from '../pages/cms/SliderFormPage';
+import VideoFormPage from '../pages/cms/VideoFormPage';
+import FinanceDashboardPage from '../pages/dashboard/FinanceDashboardPage';
+import HRDashboardPage from '../pages/dashboard/HRDashboardPage';
+import ProductionDashboardPage from '../pages/dashboard/ProductionDashboardPage';
+import PurchaseDashboardPage from '../pages/dashboard/PurchaseDashboardPage';
+import ServiceDashboardOverviewPage from '../pages/dashboard/ServiceDashboardOverviewPage';
+import CollectionReportPage from '../pages/finance/CollectionReportPage';
+import InterestCalculationPage from '../pages/finance/InterestCalculationPage';
+import LoanMonthlyPage from '../pages/finance/LoanMonthlyPage';
+import LoanSchedulePage from '../pages/finance/LoanSchedulePage';
+import OutstandingLoanPage from '../pages/finance/OutstandingLoanPage';
+import BedStatusPage from '../pages/hms/BedStatusPage';
+import BillingReportPage from '../pages/hms/BillingReportPage';
+import DepartmentWiseOPDPage from '../pages/hms/DepartmentWiseOPDPage';
+import DoctorFormPage from '../pages/hms/DoctorFormPage';
+import DoctorSchedulePage from '../pages/hms/DoctorSchedulePage';
+import DoctorWiseRevenueReportPage from '../pages/hms/DoctorWiseRevenueReportPage';
+import EmergencyPatientPage from '../pages/hms/EmergencyPatientPage';
+import HMSCashReportPage from '../pages/hms/HMSCashReportPage';
+import InPatientReportPage from '../pages/hms/InPatientReportPage';
+import InsuranceBillingPage from '../pages/hms/InsuranceBillingPage';
+import IPDReportPage from '../pages/hms/IPDReportPage';
+import LabIntegrationReportPage from '../pages/hms/LabIntegrationReportPage';
+import OPDReportPage from '../pages/hms/OPDReportPage';
+import OutsourcedTestListPage from '../pages/hms/OutsourcedTestListPage';
+import PatientDischargeSummaryPage from '../pages/hms/PatientDischargeSummaryPage';
+import PatientReportPage from '../pages/hms/PatientReportPage';
+import PharmacyListPage from '../pages/hms/PharmacyListPage';
+import WardOccupancyPage from '../pages/hms/WardOccupancyPage';
+import AllowanceTypePage from '../pages/hr/AllowanceTypePage';
+import AttendanceSummaryPage from '../pages/hr/AttendanceSummaryPage';
+import BonusPage from '../pages/hr/BonusPage';
+import DeductionTypePage from '../pages/hr/DeductionTypePage';
+import EmployeeSalaryFormPage from '../pages/hr/EmployeeSalaryFormPage';
+import EmployeeSummaryPage from '../pages/hr/EmployeeSummaryPage';
+import GrievanceListPage from '../pages/hr/GrievanceListPage';
+import HolidayFormPage from '../pages/hr/HolidayFormPage';
+import HolidayListPage from '../pages/hr/HolidayListPage';
+import LeaveApplicationPage from '../pages/hr/LeaveApplicationPage';
+import LeaveBalancePage from '../pages/hr/LeaveBalancePage';
+import OvertimePage from '../pages/hr/OvertimePage';
+import PayrollPage from '../pages/hr/PayrollPage';
+import PayslipPage from '../pages/hr/PayslipPage';
+import SalarySheetPage from '../pages/hr/SalarySheetPage';
+import ShiftFormPage from '../pages/hr/ShiftFormPage';
+import ShiftListPage from '../pages/hr/ShiftListPage';
+import BOMFormPage from '../pages/inventory/BOMFormPage';
+import BrandWiseSalesPage from '../pages/inventory/BrandWiseSalesPage';
+import CategoryWiseSalesPage from '../pages/inventory/CategoryWiseSalesPage';
+import ConsumptionFormPage from '../pages/inventory/ConsumptionFormPage';
+import ConsumptionListReportPage from '../pages/inventory/ConsumptionListReportPage';
+import DeliveryAnalysisPage from '../pages/inventory/DeliveryAnalysisPage';
+import DispatchOrderFormPage from '../pages/inventory/DispatchOrderFormPage';
+import GodownWiseStockPage from '../pages/inventory/GodownWiseStockPage';
+import MaterialRequisitionFormPage from '../pages/inventory/MaterialRequisitionFormPage';
+import MaterialRequisitionListPage from '../pages/inventory/MaterialRequisitionListPage';
+import PartyAgeingPage from '../pages/inventory/PartyAgeingPage';
+import PendingDeliveryNotePage from '../pages/inventory/PendingDeliveryNotePage';
+import PendingIndentFormPage from '../pages/inventory/PendingIndentFormPage';
+import PendingPurchaseOrderPage from '../pages/inventory/PendingPurchaseOrderPage';
+import PendingReceiptNotePage from '../pages/inventory/PendingReceiptNotePage';
+import PendingSalesOrderPage from '../pages/inventory/PendingSalesOrderPage';
+import PendingSalesQuotationPage from '../pages/inventory/PendingSalesQuotationPage';
+import ProductionOrderFormPage from '../pages/inventory/ProductionOrderFormPage';
+import ProductionOrderReportPage from '../pages/inventory/ProductionOrderReportPage';
+import ProductionPlanPage from '../pages/inventory/ProductionPlanPage';
+import ProductPriceListPage from '../pages/inventory/ProductPriceListPage';
+import ProductWisePartyReportPage from '../pages/inventory/ProductWisePartyReportPage';
+import PurchaseAnalysisPage from '../pages/inventory/PurchaseAnalysisPage';
+import PurchaseAnalysisProductWisePage from '../pages/inventory/PurchaseAnalysisProductWisePage';
+import PurchaseCostingVoucherWisePage from '../pages/inventory/PurchaseCostingVoucherWisePage';
+import PurchaseInvoiceDetailsPage from '../pages/inventory/PurchaseInvoiceDetailsPage';
+import PurchaseInvoiceFormPage from '../pages/inventory/PurchaseInvoiceFormPage';
+import PurchaseInvoiceListPage from '../pages/inventory/PurchaseInvoiceListPage';
+import PurchaseReturnFormPage from '../pages/inventory/PurchaseReturnFormPage';
+import PurchaseTaxSummaryPage from '../pages/inventory/PurchaseTaxSummaryPage';
+import QualityCheckFormPage from '../pages/inventory/QualityCheckFormPage';
+import QualityCheckListPage from '../pages/inventory/QualityCheckListPage';
+import ReceiptNoteAnalysisPage from '../pages/inventory/ReceiptNoteAnalysisPage';
+import SalesAnalysisProductWisePage from '../pages/inventory/SalesAnalysisProductWisePage';
+import SalesDeliveryNoteFormPage from '../pages/inventory/SalesDeliveryNoteFormPage';
+import SalesDeliveryNoteListPage from '../pages/inventory/SalesDeliveryNoteListPage';
+import SalesInvoiceDetailsPage from '../pages/inventory/SalesInvoiceDetailsPage';
+import SalesInvoiceFormPage from '../pages/inventory/SalesInvoiceFormPage';
+import SalesInvoiceListPage from '../pages/inventory/SalesInvoiceListPage';
+import SalesmanWiseSalesPage from '../pages/inventory/SalesmanWiseSalesPage';
+import SalesReturnFormPage from '../pages/inventory/SalesReturnFormPage';
+import SalesTaxSummaryPage from '../pages/inventory/SalesTaxSummaryPage';
+import StockJournalFormPage from '../pages/inventory/StockJournalFormPage';
+import VehicleDeliveryReportPage from '../pages/inventory/VehicleDeliveryReportPage';
+import JobHistoryPage from '../pages/jobs/JobHistoryPage';
+import JobQueuePage from '../pages/jobs/JobQueuePage';
+import JobSchedulePage from '../pages/jobs/JobSchedulePage';
+import LabBillingPage from '../pages/lab/LabBillingPage';
+import LabCategoryFormPage from '../pages/lab/LabCategoryFormPage';
+import LabDashboardPage from '../pages/lab/LabDashboardPage';
+import LabIncomeReportPage from '../pages/lab/LabIncomeReportPage';
+import LabPackageFormPage from '../pages/lab/LabPackageFormPage';
+import LabReportPage from '../pages/lab/LabReportPage';
+import LabTestFormPage from '../pages/lab/LabTestFormPage';
+import PendingTestsPage from '../pages/lab/PendingTestsPage';
+import SpecimenFormPage from '../pages/lab/SpecimenFormPage';
+import TestResultDetailPage from '../pages/lab/TestResultDetailPage';
+import AppointmentFormPage from '../pages/service/AppointmentFormPage';
+import ComplaintTicketFormPage from '../pages/service/ComplaintTicketFormPage';
+import CustomerServiceHistoryPage from '../pages/service/CustomerServiceHistoryPage';
+import JobCardReportPage from '../pages/service/JobCardReportPage';
+import ServiceAnalysisPage from '../pages/service/ServiceAnalysisPage';
+import ServiceContractListPage from '../pages/service/ServiceContractListPage';
+import ServiceRemainderPage from '../pages/service/ServiceRemainderPage';
+import SparePartsStockPage from '../pages/service/SparePartsStockPage';
+import TechnicianPerformancePage from '../pages/service/TechnicianPerformancePage';
+import VehicleFormPage from '../pages/service/VehicleFormPage';
+import WarrantyListPage from '../pages/service/WarrantyListPage';
+import AutoNumberingPage from '../pages/setup/AutoNumberingPage';
+import BranchFormPage from '../pages/setup/BranchFormPage';
+import CompanyFormPage from '../pages/setup/CompanyFormPage';
+import DocumentTypeFormPage from '../pages/setup/DocumentTypeFormPage';
+import EmailTemplatePage from '../pages/setup/EmailTemplatePage';
+import PrinterSetupPage from '../pages/setup/PrinterSetupPage';
+import SMSTemplatePage from '../pages/setup/SMSTemplatePage';
+import SubBranchFormPage from '../pages/setup/SubBranchFormPage';
+import UserGroupFormPage from '../pages/setup/UserGroupFormPage';
+
 // Dashboard - Additional
 
 // Account - Additional Masters
@@ -1141,6 +1342,207 @@ const AppRouter: React.FC = () => {
 
           {/* Jobs */}
           <Route path="jobs/entities" element={<JobEntityPage />} />
+
+          {/* Round 2 Pages */}
+          <Route path="account/area-master-form" element={<AreaMasterFormPage />} />
+          <Route path="account/area-master" element={<AreaMasterPage />} />
+          <Route path="account/bank-form" element={<BankFormPage />} />
+          <Route path="account/bank-list" element={<BankListPage />} />
+          <Route path="account/bills-payable" element={<BillsPayablePage />} />
+          <Route path="account/bills-receivable" element={<BillsReceivablePage />} />
+          <Route path="account/cash-and-bank-book" element={<CashAndBankBookPage />} />
+          <Route path="account/cash-bank-ledger-voucher" element={<CashBankLedgerVoucherPage />} />
+          <Route path="account/contra-voucher-list" element={<ContraVoucherListPage />} />
+          <Route path="account/cost-categories-report" element={<CostCategoriesReportPage />} />
+          <Route path="account/cost-category-form" element={<CostCategoryFormPage />} />
+          <Route path="account/cost-center-analysis" element={<CostCenterAnalysisPage />} />
+          <Route path="account/cost-center-form" element={<CostCenterFormPage />} />
+          <Route path="account/cost-center-voucher" element={<CostCenterVoucherPage />} />
+          <Route path="account/currency-form" element={<CurrencyFormPage />} />
+          <Route path="account/customer-form" element={<CustomerFormPage />} />
+          <Route path="account/customer-report" element={<CustomerReportPage />} />
+          <Route path="account/debtors-creditors-route" element={<DebtorsCreditorsRoutePage />} />
+          <Route path="account/debtors-creditors-type" element={<DebtorsCreditorsTypePage />} />
+          <Route path="account/department-form" element={<DepartmentFormPage />} />
+          <Route path="account/freight-type-form" element={<FreightTypeFormPage />} />
+          <Route path="account/group-wise-report" element={<GroupWiseReportPage />} />
+          <Route path="account/income-expenditure" element={<IncomeExpenditurePage />} />
+          <Route path="account/journal-voucher-list" element={<JournalVoucherListPage />} />
+          <Route path="account/lcdetails-report" element={<LCDetailsReportPage />} />
+          <Route path="account/ledger-category" element={<LedgerCategoryPage />} />
+          <Route path="account/ledger-channel" element={<LedgerChannelPage />} />
+          <Route path="account/ledger-day-book" element={<LedgerDayBookPage />} />
+          <Route path="account/ledger-group-form" element={<LedgerGroupFormPage />} />
+          <Route path="account/ledger-opening" element={<LedgerOpeningPage />} />
+          <Route path="account/ledger-sub-ledger" element={<LedgerSubLedgerPage />} />
+          <Route path="account/mul-ledger-voucher" element={<MulLedgerVoucherPage />} />
+          <Route path="account/narration-form" element={<NarrationFormPage />} />
+          <Route path="account/one-lakh-above-purchase" element={<OneLakhAbovePurchasePage />} />
+          <Route path="account/one-lakh-above-sales" element={<OneLakhAboveSalesPage />} />
+          <Route path="account/open-dated-cheque" element={<OpenDatedChequePage />} />
+          <Route path="account/party-wise-dues-bill-list" element={<PartyWiseDuesBillListPage />} />
+          <Route path="account/payment-terms-form" element={<PaymentTermsFormPage />} />
+          <Route path="account/payment-voucher-list" element={<PaymentVoucherListPage />} />
+          <Route path="account/post-dated-cheque" element={<PostDatedChequePage />} />
+          <Route path="account/profit-and-loss" element={<ProfitAndLossPage />} />
+          <Route path="account/project-form" element={<ProjectFormPage />} />
+          <Route path="account/purchase-return-vat-register" element={<PurchaseReturnVatRegisterPage />} />
+          <Route path="account/purchase-vat-register" element={<PurchaseVatRegisterPage />} />
+          <Route path="account/receipt-voucher-list" element={<ReceiptVoucherListPage />} />
+          <Route path="account/salesman-commission" element={<SalesmanCommissionPage />} />
+          <Route path="account/salesman-form" element={<SalesmanFormPage />} />
+          <Route path="account/sales-return-vat-register" element={<SalesReturnVatRegisterPage />} />
+          <Route path="account/sales-vat-register" element={<SalesVatRegisterPage />} />
+          <Route path="account/tdssummary" element={<TDSSummaryPage />} />
+          <Route path="account/tdsvat-summary" element={<TDSVatSummaryPage />} />
+          <Route path="account/vat-summary" element={<VatSummaryPage />} />
+          <Route path="account/vendor-form" element={<VendorFormPage />} />
+          <Route path="account/vendor-report" element={<VendorReportPage />} />
+          <Route path="account/voucher-mode-form" element={<VoucherModeFormPage />} />
+          <Route path="assets/asset-audit" element={<AssetAuditPage />} />
+          <Route path="assets/asset-barcode-list" element={<AssetBarcodeListPage />} />
+          <Route path="assets/asset-category-form" element={<AssetCategoryFormPage />} />
+          <Route path="assets/asset-depreciation" element={<AssetDepreciationPage />} />
+          <Route path="assets/asset-disposal-report" element={<AssetDisposalReportPage />} />
+          <Route path="assets/asset-form-page2" element={<AssetFormPage2 />} />
+          <Route path="assets/asset-group-form" element={<AssetGroupFormPage />} />
+          <Route path="assets/asset-insurance" element={<AssetInsurancePage />} />
+          <Route path="assets/asset-location" element={<AssetLocationPage />} />
+          <Route path="assets/asset-maintenance" element={<AssetMaintenancePage />} />
+          <Route path="assets/asset-return-report" element={<AssetReturnReportPage />} />
+          <Route path="assets/asset-schedule" element={<AssetSchedulePage />} />
+          <Route path="assets/asset-transfer-report" element={<AssetTransferReportPage />} />
+          <Route path="cms/banner-form" element={<BannerFormPage />} />
+          <Route path="cms/cmsdashboard" element={<CMSDashboardPage />} />
+          <Route path="cms/event-form" element={<EventFormPage />} />
+          <Route path="cms/event-type-form" element={<EventTypeFormPage />} />
+          <Route path="cms/gallery-form" element={<GalleryFormPage />} />
+          <Route path="cms/notice-form" element={<NoticeFormPage />} />
+          <Route path="cms/product-display-form" element={<ProductDisplayFormPage />} />
+          <Route path="cms/slider-form" element={<SliderFormPage />} />
+          <Route path="cms/video-form" element={<VideoFormPage />} />
+          <Route path="dashboard/finance-dashboard" element={<FinanceDashboardPage />} />
+          <Route path="dashboard/hrdashboard" element={<HRDashboardPage />} />
+          <Route path="dashboard/production-dashboard" element={<ProductionDashboardPage />} />
+          <Route path="dashboard/purchase-dashboard" element={<PurchaseDashboardPage />} />
+          <Route path="dashboard/service-dashboard-overview" element={<ServiceDashboardOverviewPage />} />
+          <Route path="finance/collection-report" element={<CollectionReportPage />} />
+          <Route path="finance/interest-calculation" element={<InterestCalculationPage />} />
+          <Route path="finance/loan-monthly" element={<LoanMonthlyPage />} />
+          <Route path="finance/loan-schedule" element={<LoanSchedulePage />} />
+          <Route path="finance/outstanding-loan" element={<OutstandingLoanPage />} />
+          <Route path="hms/bed-status" element={<BedStatusPage />} />
+          <Route path="hms/billing-report" element={<BillingReportPage />} />
+          <Route path="hms/department-wise-opd" element={<DepartmentWiseOPDPage />} />
+          <Route path="hms/doctor-form" element={<DoctorFormPage />} />
+          <Route path="hms/doctor-schedule" element={<DoctorSchedulePage />} />
+          <Route path="hms/doctor-wise-revenue-report" element={<DoctorWiseRevenueReportPage />} />
+          <Route path="hms/emergency-patient" element={<EmergencyPatientPage />} />
+          <Route path="hms/hmscash-report" element={<HMSCashReportPage />} />
+          <Route path="hms/in-patient-report" element={<InPatientReportPage />} />
+          <Route path="hms/insurance-billing" element={<InsuranceBillingPage />} />
+          <Route path="hms/ipdreport" element={<IPDReportPage />} />
+          <Route path="hms/lab-integration-report" element={<LabIntegrationReportPage />} />
+          <Route path="hms/opdreport" element={<OPDReportPage />} />
+          <Route path="hms/outsourced-test-list" element={<OutsourcedTestListPage />} />
+          <Route path="hms/patient-discharge-summary" element={<PatientDischargeSummaryPage />} />
+          <Route path="hms/patient-report" element={<PatientReportPage />} />
+          <Route path="hms/pharmacy-list" element={<PharmacyListPage />} />
+          <Route path="hms/ward-occupancy" element={<WardOccupancyPage />} />
+          <Route path="hr/allowance-type" element={<AllowanceTypePage />} />
+          <Route path="hr/attendance-summary" element={<AttendanceSummaryPage />} />
+          <Route path="hr/bonus" element={<BonusPage />} />
+          <Route path="hr/deduction-type" element={<DeductionTypePage />} />
+          <Route path="hr/employee-salary-form" element={<EmployeeSalaryFormPage />} />
+          <Route path="hr/employee-summary" element={<EmployeeSummaryPage />} />
+          <Route path="hr/grievance-list" element={<GrievanceListPage />} />
+          <Route path="hr/holiday-form" element={<HolidayFormPage />} />
+          <Route path="hr/holiday-list" element={<HolidayListPage />} />
+          <Route path="hr/leave-application" element={<LeaveApplicationPage />} />
+          <Route path="hr/leave-balance" element={<LeaveBalancePage />} />
+          <Route path="hr/overtime" element={<OvertimePage />} />
+          <Route path="hr/payroll" element={<PayrollPage />} />
+          <Route path="hr/payslip" element={<PayslipPage />} />
+          <Route path="hr/salary-sheet" element={<SalarySheetPage />} />
+          <Route path="hr/shift-form" element={<ShiftFormPage />} />
+          <Route path="hr/shift-list" element={<ShiftListPage />} />
+          <Route path="inventory/bomform" element={<BOMFormPage />} />
+          <Route path="inventory/brand-wise-sales" element={<BrandWiseSalesPage />} />
+          <Route path="inventory/category-wise-sales" element={<CategoryWiseSalesPage />} />
+          <Route path="inventory/consumption-form" element={<ConsumptionFormPage />} />
+          <Route path="inventory/consumption-list-report" element={<ConsumptionListReportPage />} />
+          <Route path="inventory/delivery-analysis" element={<DeliveryAnalysisPage />} />
+          <Route path="inventory/dispatch-order-form" element={<DispatchOrderFormPage />} />
+          <Route path="inventory/godown-wise-stock" element={<GodownWiseStockPage />} />
+          <Route path="inventory/material-requisition-form" element={<MaterialRequisitionFormPage />} />
+          <Route path="inventory/material-requisition-list" element={<MaterialRequisitionListPage />} />
+          <Route path="inventory/party-ageing" element={<PartyAgeingPage />} />
+          <Route path="inventory/pending-delivery-note" element={<PendingDeliveryNotePage />} />
+          <Route path="inventory/pending-indent-form" element={<PendingIndentFormPage />} />
+          <Route path="inventory/pending-purchase-order" element={<PendingPurchaseOrderPage />} />
+          <Route path="inventory/pending-receipt-note" element={<PendingReceiptNotePage />} />
+          <Route path="inventory/pending-sales-order" element={<PendingSalesOrderPage />} />
+          <Route path="inventory/pending-sales-quotation" element={<PendingSalesQuotationPage />} />
+          <Route path="inventory/production-order-form" element={<ProductionOrderFormPage />} />
+          <Route path="inventory/production-order-report" element={<ProductionOrderReportPage />} />
+          <Route path="inventory/production-plan" element={<ProductionPlanPage />} />
+          <Route path="inventory/product-price-list" element={<ProductPriceListPage />} />
+          <Route path="inventory/product-wise-party-report" element={<ProductWisePartyReportPage />} />
+          <Route path="inventory/purchase-analysis" element={<PurchaseAnalysisPage />} />
+          <Route path="inventory/purchase-analysis-product-wise" element={<PurchaseAnalysisProductWisePage />} />
+          <Route path="inventory/purchase-costing-voucher-wise" element={<PurchaseCostingVoucherWisePage />} />
+          <Route path="inventory/purchase-invoice-details" element={<PurchaseInvoiceDetailsPage />} />
+          <Route path="inventory/purchase-invoice-form" element={<PurchaseInvoiceFormPage />} />
+          <Route path="inventory/purchase-invoice-list" element={<PurchaseInvoiceListPage />} />
+          <Route path="inventory/purchase-return-form" element={<PurchaseReturnFormPage />} />
+          <Route path="inventory/purchase-tax-summary" element={<PurchaseTaxSummaryPage />} />
+          <Route path="inventory/quality-check-form" element={<QualityCheckFormPage />} />
+          <Route path="inventory/quality-check-list" element={<QualityCheckListPage />} />
+          <Route path="inventory/receipt-note-analysis" element={<ReceiptNoteAnalysisPage />} />
+          <Route path="inventory/sales-analysis-product-wise" element={<SalesAnalysisProductWisePage />} />
+          <Route path="inventory/sales-delivery-note-form" element={<SalesDeliveryNoteFormPage />} />
+          <Route path="inventory/sales-delivery-note-list" element={<SalesDeliveryNoteListPage />} />
+          <Route path="inventory/sales-invoice-details" element={<SalesInvoiceDetailsPage />} />
+          <Route path="inventory/sales-invoice-form" element={<SalesInvoiceFormPage />} />
+          <Route path="inventory/sales-invoice-list" element={<SalesInvoiceListPage />} />
+          <Route path="inventory/salesman-wise-sales" element={<SalesmanWiseSalesPage />} />
+          <Route path="inventory/sales-return-form" element={<SalesReturnFormPage />} />
+          <Route path="inventory/sales-tax-summary" element={<SalesTaxSummaryPage />} />
+          <Route path="inventory/stock-journal-form" element={<StockJournalFormPage />} />
+          <Route path="inventory/vehicle-delivery-report" element={<VehicleDeliveryReportPage />} />
+          <Route path="jobs/job-history" element={<JobHistoryPage />} />
+          <Route path="jobs/job-queue" element={<JobQueuePage />} />
+          <Route path="jobs/job-schedule" element={<JobSchedulePage />} />
+          <Route path="lab/lab-billing" element={<LabBillingPage />} />
+          <Route path="lab/lab-category-form" element={<LabCategoryFormPage />} />
+          <Route path="lab/lab-dashboard" element={<LabDashboardPage />} />
+          <Route path="lab/lab-income-report" element={<LabIncomeReportPage />} />
+          <Route path="lab/lab-package-form" element={<LabPackageFormPage />} />
+          <Route path="lab/lab-report" element={<LabReportPage />} />
+          <Route path="lab/lab-test-form" element={<LabTestFormPage />} />
+          <Route path="lab/pending-tests" element={<PendingTestsPage />} />
+          <Route path="lab/specimen-form" element={<SpecimenFormPage />} />
+          <Route path="lab/test-result-detail" element={<TestResultDetailPage />} />
+          <Route path="service/appointment-form" element={<AppointmentFormPage />} />
+          <Route path="service/complaint-ticket-form" element={<ComplaintTicketFormPage />} />
+          <Route path="service/customer-service-history" element={<CustomerServiceHistoryPage />} />
+          <Route path="service/job-card-report" element={<JobCardReportPage />} />
+          <Route path="service/service-analysis" element={<ServiceAnalysisPage />} />
+          <Route path="service/service-contract-list" element={<ServiceContractListPage />} />
+          <Route path="service/service-remainder" element={<ServiceRemainderPage />} />
+          <Route path="service/spare-parts-stock" element={<SparePartsStockPage />} />
+          <Route path="service/technician-performance" element={<TechnicianPerformancePage />} />
+          <Route path="service/vehicle-form" element={<VehicleFormPage />} />
+          <Route path="service/warranty-list" element={<WarrantyListPage />} />
+          <Route path="setup/auto-numbering" element={<AutoNumberingPage />} />
+          <Route path="setup/branch-form" element={<BranchFormPage />} />
+          <Route path="setup/company-form" element={<CompanyFormPage />} />
+          <Route path="setup/document-type-form" element={<DocumentTypeFormPage />} />
+          <Route path="setup/email-template" element={<EmailTemplatePage />} />
+          <Route path="setup/printer-setup" element={<PrinterSetupPage />} />
+          <Route path="setup/smstemplate" element={<SMSTemplatePage />} />
+          <Route path="setup/sub-branch-form" element={<SubBranchFormPage />} />
+          <Route path="setup/user-group-form" element={<UserGroupFormPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
