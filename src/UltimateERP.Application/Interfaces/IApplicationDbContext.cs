@@ -11,6 +11,7 @@ using UltimateERP.Domain.Entities.Loyalty;
 using UltimateERP.Domain.Entities.Security;
 using UltimateERP.Domain.Entities.Setup;
 using UltimateERP.Domain.Entities.Support;
+using UltimateERP.Domain.Entities.IndustrySpecific;
 using UltimateERP.Domain.Entities.TaskModule;
 
 namespace UltimateERP.Application.Interfaces;
@@ -106,6 +107,15 @@ public interface IApplicationDbContext
 
     // Assets
     DbSet<AssetMaster> Assets { get; }
+
+    // Dispatch
+    DbSet<DispatchOrder> DispatchOrders { get; }
+
+    // Industry-Specific
+    DbSet<DairyPurchaseInvoice> DairyPurchaseInvoices { get; }
+    DbSet<DairySalesInvoice> DairySalesInvoices { get; }
+    DbSet<TeaPurchaseInvoice> TeaPurchaseInvoices { get; }
+    DbSet<PetrolPumpTransaction> PetrolPumpTransactions { get; }
 
     Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
 }
