@@ -54,6 +54,16 @@ public static class DependencyInjection
         services.AddScoped<IPermissionService, PermissionService>();
         services.AddScoped<IAuthorizationHandler, PermissionRequirementHandler>();
 
+        // External integrations (Task 30)
+        services.AddHttpClient<ISmsService, SmsService>();
+        services.AddHttpClient<IPaymentGatewayService, FonePayService>();
+        services.AddHttpClient<IPushNotificationService, OneSignalService>();
+        services.AddHttpClient<ISSFApiService, SSFApiService>();
+
+        // Data import/export (Task 31)
+        services.AddScoped<IExcelService, ExcelService>();
+        services.AddScoped<ITallyIntegrationService, TallyIntegrationService>();
+
         return services;
     }
 }
