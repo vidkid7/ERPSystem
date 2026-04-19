@@ -213,7 +213,16 @@ public enum FixedProductStatus
 public enum SampleCollectionStatus
 {
     Pending = 0,
-    Completed = 1
+    Collected = 1,
+    InProcess = 2,
+    Completed = 3
+}
+
+public enum LabReportStatus
+{
+    Pending = 0,
+    Completed = 1,
+    Validated = 2
 }
 
 public enum NumberingMethod
@@ -273,4 +282,26 @@ public enum SupportTicketStatus
     InProgress = 1,
     Resolved = 2,
     Closed = 3
+}
+
+public enum KYCStatus
+{
+    Pending = 0,
+    Verified = 1,
+    Rejected = 2
+}
+
+public enum PaymentStatus
+{
+    Initiated = 0,
+    Completed = 1,
+    Failed = 2,
+    Cancelled = 3
+}
+
+public enum FiscalYearStatus
+{
+    Open = 0,
+    Closed = 1,
+    Locked = 2
 }

@@ -27,6 +27,25 @@ public class SliderController : ControllerBase
         var result = await _mediator.Send(new CreateSliderCommand(dto));
         return result.IsSuccess ? Created("", result) : BadRequest(result);
     }
+
+    [HttpPut("{id}/order")]
+    public async Task<ActionResult<ApiResponse<SliderDto>>> UpdateOrder(int id, [FromBody] UpdateSliderOrderDto dto)
+    {
+        dto.SliderId = id;
+        var result = await _mediator.Send(new UpdateSliderOrderCommand(dto));
+        return result.IsSuccess ? Ok(result) : BadRequest(result);
+    }
+
+    [HttpPut("{id}/toggle-active")]
+    public async Task<ActionResult<ApiResponse<SliderDto>>> ToggleActive(int id)
+    {
+        var result = await _mediator.Send(new ToggleSliderActiveCommand(new ToggleActiveDto { Id = id }));
+        return result.IsSuccess ? Ok(result) : BadRequest(result);
+    }
+
+    [HttpGet("active")]
+    public async Task<ActionResult<ApiResponse<List<SliderDto>>>> GetActive()
+        => Ok(await _mediator.Send(new GetActiveSlidersQuery()));
 }
 
 [ApiController]
@@ -47,6 +66,13 @@ public class BannerController : ControllerBase
     {
         var result = await _mediator.Send(new CreateBannerCommand(dto));
         return result.IsSuccess ? Created("", result) : BadRequest(result);
+    }
+
+    [HttpPut("{id}/toggle-active")]
+    public async Task<ActionResult<ApiResponse<BannerDto>>> ToggleActive(int id)
+    {
+        var result = await _mediator.Send(new ToggleBannerActiveCommand(new ToggleActiveDto { Id = id }));
+        return result.IsSuccess ? Ok(result) : BadRequest(result);
     }
 }
 
@@ -69,4 +95,8 @@ public class NoticeController : ControllerBase
         var result = await _mediator.Send(new CreateNoticeCommand(dto));
         return result.IsSuccess ? Created("", result) : BadRequest(result);
     }
+
+    [HttpGet("active")]
+    public async Task<ActionResult<ApiResponse<List<NoticeDto>>>> GetActive()
+        => Ok(await _mediator.Send(new GetActiveNoticesQuery()));
 }

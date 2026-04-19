@@ -113,3 +113,64 @@ public class CreateNoticeHandler : IRequestHandler<CreateNoticeCommand, ApiRespo
         return ApiResponse<NoticeDto>.Success(_mapper.Map<NoticeDto>(notice), "Notice created");
     }
 }
+
+// Update Slider Order
+public record UpdateSliderOrderCommand(UpdateSliderOrderDto Dto) : IRequest<ApiResponse<SliderDto>>;
+
+public class UpdateSliderOrderHandler : IRequestHandler<UpdateSliderOrderCommand, ApiResponse<SliderDto>>
+{
+    private readonly IApplicationDbContext _db;
+    private readonly IMapper _mapper;
+    public UpdateSliderOrderHandler(IApplicationDbContext db, IMapper mapper) { _db = db; _mapper = mapper; }
+
+    public async Task<ApiResponse<SliderDto>> Handle(UpdateSliderOrderCommand request, CancellationToken ct)
+    {
+        var dto = request.Dto;
+        var slider = await _db.Sliders.FindAsync(new object[] { dto.SliderId }, ct);
+        if (slider is null) return ApiResponse<SliderDto>.Failure("Slider not found");
+
+        slider.DisplayOrder = dto.NewOrder;
+        await _db.SaveChangesAsync(ct);
+        return ApiResponse<SliderDto>.Success(_mapper.Map<SliderDto>(slider), "Slider order updated");
+    }
+}
+
+// Toggle Slider Active
+public record ToggleSliderActiveCommand(ToggleActiveDto Dto) : IRequest<ApiResponse<SliderDto>>;
+
+public class ToggleSliderActiveHandler : IRequestHandler<ToggleSliderActiveCommand, ApiResponse<SliderDto>>
+{
+    private readonly IApplicationDbContext _db;
+    private readonly IMapper _mapper;
+    public ToggleSliderActiveHandler(IApplicationDbContext db, IMapper mapper) { _db = db; _mapper = mapper; }
+
+    public async Task<ApiResponse<SliderDto>> Handle(ToggleSliderActiveCommand request, CancellationToken ct)
+    {
+        var slider = await _db.Sliders.FindAsync(new object[] { request.Dto.Id }, ct);
+        if (slider is null) return ApiResponse<SliderDto>.Failure("Slider not found");
+
+        slider.IsActive = !slider.IsActive;
+        await _db.SaveChangesAsync(ct);
+        return ApiResponse<SliderDto>.Success(_mapper.Map<SliderDto>(slider), "Slider active status toggled");
+    }
+}
+
+// Toggle Banner Active
+public record ToggleBannerActiveCommand(ToggleActiveDto Dto) : IRequest<ApiResponse<BannerDto>>;
+
+public class ToggleBannerActiveHandler : IRequestHandler<ToggleBannerActiveCommand, ApiResponse<BannerDto>>
+{
+    private readonly IApplicationDbContext _db;
+    private readonly IMapper _mapper;
+    public ToggleBannerActiveHandler(IApplicationDbContext db, IMapper mapper) { _db = db; _mapper = mapper; }
+
+    public async Task<ApiResponse<BannerDto>> Handle(ToggleBannerActiveCommand request, CancellationToken ct)
+    {
+        var banner = await _db.Banners.FindAsync(new object[] { request.Dto.Id }, ct);
+        if (banner is null) return ApiResponse<BannerDto>.Failure("Banner not found");
+
+        banner.IsActive = !banner.IsActive;
+        await _db.SaveChangesAsync(ct);
+        return ApiResponse<BannerDto>.Success(_mapper.Map<BannerDto>(banner), "Banner active status toggled");
+    }
+}

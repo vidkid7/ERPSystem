@@ -3,8 +3,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using UltimateERP.Application.Interfaces;
+using UltimateERP.Application.Services;
 using UltimateERP.Domain.Interfaces;
 using UltimateERP.Infrastructure.Auth;
+using UltimateERP.Infrastructure.ExternalServices;
 using UltimateERP.Infrastructure.Persistence;
 using UltimateERP.Infrastructure.Persistence.Interceptors;
 using UltimateERP.Infrastructure.Repositories;
@@ -35,6 +37,16 @@ public static class DependencyInjection
         services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
         services.AddScoped<IApplicationDbContext>(sp => sp.GetRequiredService<ERPDbContext>());
         services.AddSingleton<IDateTimeService, DateTimeService>();
+
+        // Nepal IRD integration
+        services.AddHttpClient<IIRDApiClient, IRDApiClient>(client =>
+        {
+            var irdBaseUrl = configuration.GetValue<string>("IRD:BaseUrl") ?? "https://cbms.ird.gov.np/";
+            client.BaseAddress = new Uri(irdBaseUrl);
+        });
+
+        // Lab workflow
+        services.AddScoped<LabWorkflowService>();
 
         // Auth services
         services.AddSingleton<ITokenService, JwtTokenService>();

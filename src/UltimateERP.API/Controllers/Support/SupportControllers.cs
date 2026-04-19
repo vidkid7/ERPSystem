@@ -36,4 +36,20 @@ public class SupportTicketController : ControllerBase
         var result = await _mediator.Send(new AssignSupportTicketCommand(dto));
         return result.IsSuccess ? Ok(result) : BadRequest(result);
     }
+
+    [HttpPut("{id}/resolve")]
+    public async Task<ActionResult<ApiResponse<SupportTicketDto>>> Resolve(int id, [FromBody] ResolveSupportTicketDto dto)
+    {
+        dto.TicketId = id;
+        var result = await _mediator.Send(new ResolveSupportTicketCommand(dto));
+        return result.IsSuccess ? Ok(result) : BadRequest(result);
+    }
+
+    [HttpPut("{id}/escalate")]
+    public async Task<ActionResult<ApiResponse<SupportTicketDto>>> Escalate(int id, [FromBody] EscalateSupportTicketDto dto)
+    {
+        dto.TicketId = id;
+        var result = await _mediator.Send(new EscalateSupportTicketCommand(dto));
+        return result.IsSuccess ? Ok(result) : BadRequest(result);
+    }
 }

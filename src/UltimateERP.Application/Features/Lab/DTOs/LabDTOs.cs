@@ -40,6 +40,8 @@ public class LabReportDto
     public int? TemplateId { get; set; }
     public string? ReportData { get; set; }
     public int? GeneratedBy { get; set; }
+    public string? Status { get; set; }
+    public int? ValidatedBy { get; set; }
     public bool IsActive { get; set; }
 }
 

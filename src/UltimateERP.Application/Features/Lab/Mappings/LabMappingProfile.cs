@@ -15,6 +15,7 @@ public class LabMappingProfile : Profile
             .ForMember(d => d.SampleNumber, o => o.MapFrom(s =>
                 s.SampleCollection != null ? s.SampleCollection.SampleNumber : null))
             .ForMember(d => d.PatientName, o => o.MapFrom(s =>
-                s.SampleCollection != null ? s.SampleCollection.PatientName : null));
+                s.SampleCollection != null ? s.SampleCollection.PatientName : null))
+            .ForMember(d => d.Status, o => o.MapFrom(s => s.Status.ToString()));
     }
 }

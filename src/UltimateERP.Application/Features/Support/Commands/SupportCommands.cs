@@ -76,3 +76,48 @@ public class AssignSupportTicketHandler : IRequestHandler<AssignSupportTicketCom
         return ApiResponse<SupportTicketDto>.Success(_mapper.Map<SupportTicketDto>(ticket), "Support ticket assigned");
     }
 }
+
+// Resolve Support Ticket
+public record ResolveSupportTicketCommand(ResolveSupportTicketDto Dto) : IRequest<ApiResponse<SupportTicketDto>>;
+
+public class ResolveSupportTicketHandler : IRequestHandler<ResolveSupportTicketCommand, ApiResponse<SupportTicketDto>>
+{
+    private readonly IApplicationDbContext _db;
+    private readonly IMapper _mapper;
+    public ResolveSupportTicketHandler(IApplicationDbContext db, IMapper mapper) { _db = db; _mapper = mapper; }
+
+    public async Task<ApiResponse<SupportTicketDto>> Handle(ResolveSupportTicketCommand request, CancellationToken ct)
+    {
+        var ticket = await _db.SupportTickets.FindAsync(new object[] { request.Dto.TicketId }, ct);
+        if (ticket is null) return ApiResponse<SupportTicketDto>.Failure("Support ticket not found");
+
+        ticket.Status = SupportTicketStatus.Resolved;
+        ticket.ResolutionNotes = request.Dto.ResolutionNotes;
+        ticket.ResolvedDate = DateTime.UtcNow;
+
+        await _db.SaveChangesAsync(ct);
+        return ApiResponse<SupportTicketDto>.Success(_mapper.Map<SupportTicketDto>(ticket), "Support ticket resolved");
+    }
+}
+
+// Escalate Support Ticket
+public record EscalateSupportTicketCommand(EscalateSupportTicketDto Dto) : IRequest<ApiResponse<SupportTicketDto>>;
+
+public class EscalateSupportTicketHandler : IRequestHandler<EscalateSupportTicketCommand, ApiResponse<SupportTicketDto>>
+{
+    private readonly IApplicationDbContext _db;
+    private readonly IMapper _mapper;
+    public EscalateSupportTicketHandler(IApplicationDbContext db, IMapper mapper) { _db = db; _mapper = mapper; }
+
+    public async Task<ApiResponse<SupportTicketDto>> Handle(EscalateSupportTicketCommand request, CancellationToken ct)
+    {
+        var ticket = await _db.SupportTickets.FindAsync(new object[] { request.Dto.TicketId }, ct);
+        if (ticket is null) return ApiResponse<SupportTicketDto>.Failure("Support ticket not found");
+
+        ticket.AssignedToId = request.Dto.EscalatedToId;
+        ticket.Status = SupportTicketStatus.InProgress;
+
+        await _db.SaveChangesAsync(ct);
+        return ApiResponse<SupportTicketDto>.Success(_mapper.Map<SupportTicketDto>(ticket), "Support ticket escalated");
+    }
+}

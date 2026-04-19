@@ -91,3 +91,45 @@ public class GetNoticesHandler : IRequestHandler<GetNoticesQuery, ApiResponse<Li
         return ApiResponse<List<NoticeDto>>.Success(items, "Notices retrieved", total);
     }
 }
+
+// Get Active Sliders (no pagination)
+public record GetActiveSlidersQuery() : IRequest<ApiResponse<List<SliderDto>>>;
+
+public class GetActiveSlidersHandler : IRequestHandler<GetActiveSlidersQuery, ApiResponse<List<SliderDto>>>
+{
+    private readonly IApplicationDbContext _db;
+    private readonly IMapper _mapper;
+    public GetActiveSlidersHandler(IApplicationDbContext db, IMapper mapper) { _db = db; _mapper = mapper; }
+
+    public async Task<ApiResponse<List<SliderDto>>> Handle(GetActiveSlidersQuery request, CancellationToken ct)
+    {
+        var items = await _db.Sliders
+            .Where(s => s.IsActive && (s.ValidTo == null || s.ValidTo >= DateTime.UtcNow))
+            .OrderBy(s => s.DisplayOrder)
+            .ProjectTo<SliderDto>(_mapper.ConfigurationProvider)
+            .ToListAsync(ct);
+
+        return ApiResponse<List<SliderDto>>.Success(items, "Active sliders retrieved", items.Count);
+    }
+}
+
+// Get Active Notices (no pagination)
+public record GetActiveNoticesQuery() : IRequest<ApiResponse<List<NoticeDto>>>;
+
+public class GetActiveNoticesHandler : IRequestHandler<GetActiveNoticesQuery, ApiResponse<List<NoticeDto>>>
+{
+    private readonly IApplicationDbContext _db;
+    private readonly IMapper _mapper;
+    public GetActiveNoticesHandler(IApplicationDbContext db, IMapper mapper) { _db = db; _mapper = mapper; }
+
+    public async Task<ApiResponse<List<NoticeDto>>> Handle(GetActiveNoticesQuery request, CancellationToken ct)
+    {
+        var items = await _db.Notices
+            .Where(n => n.IsActive && (n.ExpiryDate == null || n.ExpiryDate >= DateTime.UtcNow))
+            .OrderByDescending(n => n.PublishDate)
+            .ProjectTo<NoticeDto>(_mapper.ConfigurationProvider)
+            .ToListAsync(ct);
+
+        return ApiResponse<List<NoticeDto>>.Success(items, "Active notices retrieved", items.Count);
+    }
+}

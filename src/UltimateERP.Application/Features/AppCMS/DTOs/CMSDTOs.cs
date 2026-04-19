@@ -61,3 +61,14 @@ public class CreateNoticeDto
     public DateTime? PublishDate { get; set; }
     public DateTime? ExpiryDate { get; set; }
 }
+
+public class UpdateSliderOrderDto
+{
+    public int SliderId { get; set; }
+    public int NewOrder { get; set; }
+}
+
+public class ToggleActiveDto
+{
+    public int Id { get; set; }
+}

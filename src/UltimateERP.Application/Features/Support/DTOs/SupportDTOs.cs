@@ -33,3 +33,16 @@ public class AssignSupportTicketDto
     public int TicketId { get; set; }
     public int AssignedToId { get; set; }
 }
+
+public class ResolveSupportTicketDto
+{
+    public int TicketId { get; set; }
+    public string? ResolutionNotes { get; set; }
+}
+
+public class EscalateSupportTicketDto
+{
+    public int TicketId { get; set; }
+    public int EscalatedToId { get; set; }
+    public string? Reason { get; set; }
+}
