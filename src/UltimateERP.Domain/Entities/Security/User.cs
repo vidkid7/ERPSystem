@@ -9,6 +9,7 @@ public class User : BaseEntity
     public string PasswordHash { get; set; } = string.Empty;
     public string? PasswordSalt { get; set; }
     public string? UserType { get; set; }
+    public bool IsSystemAdmin { get; set; }
     public int? BranchId { get; set; }
     public Branch? Branch { get; set; }
     public string? Email { get; set; }

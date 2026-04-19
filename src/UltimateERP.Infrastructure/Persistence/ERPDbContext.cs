@@ -18,10 +18,11 @@ using UltimateERP.Domain.Entities.KYC;
 using UltimateERP.Domain.Entities.IndustrySpecific;
 using UltimateERP.Domain.Entities.Reporting;
 using UltimateERP.Domain.Entities.Jobs;
+using UltimateERP.Application.Interfaces;
 
 namespace UltimateERP.Infrastructure.Persistence;
 
-public class ERPDbContext : DbContext
+public class ERPDbContext : DbContext, IApplicationDbContext
 {
     public ERPDbContext(DbContextOptions<ERPDbContext> options) : base(options) { }
 

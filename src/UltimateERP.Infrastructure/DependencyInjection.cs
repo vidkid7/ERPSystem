@@ -1,7 +1,10 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using UltimateERP.Application.Interfaces;
 using UltimateERP.Domain.Interfaces;
+using UltimateERP.Infrastructure.Auth;
 using UltimateERP.Infrastructure.Persistence;
 using UltimateERP.Infrastructure.Persistence.Interceptors;
 using UltimateERP.Infrastructure.Repositories;
@@ -30,7 +33,14 @@ public static class DependencyInjection
 
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+        services.AddScoped<IApplicationDbContext>(sp => sp.GetRequiredService<ERPDbContext>());
         services.AddSingleton<IDateTimeService, DateTimeService>();
+
+        // Auth services
+        services.AddSingleton<ITokenService, JwtTokenService>();
+        services.AddScoped<IPasswordHasher, PasswordHasher>();
+        services.AddScoped<IPermissionService, PermissionService>();
+        services.AddScoped<IAuthorizationHandler, PermissionRequirementHandler>();
 
         return services;
     }
