@@ -58,6 +58,8 @@ public class ERPDbContext : DbContext, IApplicationDbContext
     public DbSet<LetterOfCredit> LettersOfCredit => Set<LetterOfCredit>();
     public DbSet<BankReconciliation> BankReconciliations => Set<BankReconciliation>();
     public DbSet<FiscalYear> FiscalYears => Set<FiscalYear>();
+    public DbSet<PaymentTerm> PaymentTerms => Set<PaymentTerm>();
+    public DbSet<PaymentMode> PaymentModes => Set<PaymentMode>();
 
     // ── Inventory ────────────────────────────────────────────────────────
     public DbSet<Product> Products => Set<Product>();
@@ -67,6 +69,16 @@ public class ERPDbContext : DbContext, IApplicationDbContext
     public DbSet<Stock> Stocks => Set<Stock>();
     public DbSet<PurchaseInvoice> PurchaseInvoices => Set<PurchaseInvoice>();
     public DbSet<PurchaseInvoiceDetail> PurchaseInvoiceDetails => Set<PurchaseInvoiceDetail>();
+    public DbSet<PurchaseQuotation> PurchaseQuotations => Set<PurchaseQuotation>();
+    public DbSet<PurchaseQuotationDetail> PurchaseQuotationDetails => Set<PurchaseQuotationDetail>();
+    public DbSet<PurchaseOrder> PurchaseOrders => Set<PurchaseOrder>();
+    public DbSet<PurchaseOrderDetail> PurchaseOrderDetails => Set<PurchaseOrderDetail>();
+    public DbSet<ReceiptNote> ReceiptNotes => Set<ReceiptNote>();
+    public DbSet<ReceiptNoteDetail> ReceiptNoteDetails => Set<ReceiptNoteDetail>();
+    public DbSet<PurchaseReturn> PurchaseReturns => Set<PurchaseReturn>();
+    public DbSet<PurchaseReturnDetail> PurchaseReturnDetails => Set<PurchaseReturnDetail>();
+    public DbSet<PurchaseDebitNote> PurchaseDebitNotes => Set<PurchaseDebitNote>();
+    public DbSet<PurchaseCreditNote> PurchaseCreditNotes => Set<PurchaseCreditNote>();
     public DbSet<SalesInvoice> SalesInvoices => Set<SalesInvoice>();
     public DbSet<SalesInvoiceDetail> SalesInvoiceDetails => Set<SalesInvoiceDetail>();
     public DbSet<StockTransfer> StockTransfers => Set<StockTransfer>();
@@ -79,6 +91,15 @@ public class ERPDbContext : DbContext, IApplicationDbContext
     public DbSet<DispatchSection> DispatchSections => Set<DispatchSection>();
     public DbSet<GatePass> GatePasses => Set<GatePass>();
     public DbSet<SalesAllotment> SalesAllotments => Set<SalesAllotment>();
+    public DbSet<SalesQuotation> SalesQuotations => Set<SalesQuotation>();
+    public DbSet<SalesQuotationDetail> SalesQuotationDetails => Set<SalesQuotationDetail>();
+    public DbSet<SalesOrder> SalesOrders => Set<SalesOrder>();
+    public DbSet<SalesOrderDetail> SalesOrderDetails => Set<SalesOrderDetail>();
+    public DbSet<SalesReturn> SalesReturns => Set<SalesReturn>();
+    public DbSet<SalesReturnDetail> SalesReturnDetails => Set<SalesReturnDetail>();
+    public DbSet<SalesDebitNote> SalesDebitNotes => Set<SalesDebitNote>();
+    public DbSet<SalesCreditNote> SalesCreditNotes => Set<SalesCreditNote>();
+    public DbSet<LandedCost> LandedCosts => Set<LandedCost>();
     public DbSet<BOM> BOMs => Set<BOM>();
     public DbSet<BOMDetail> BOMDetails => Set<BOMDetail>();
 

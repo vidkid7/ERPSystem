@@ -54,14 +54,45 @@ public interface IApplicationDbContext
     DbSet<BankGuarantee> BankGuarantees { get; }
     DbSet<LetterOfCredit> LettersOfCredit { get; }
     DbSet<BankReconciliation> BankReconciliations { get; }
+    DbSet<PaymentTerm> PaymentTerms { get; }
+    DbSet<PaymentMode> PaymentModes { get; }
 
     // Inventory
     DbSet<Product> Products { get; }
     DbSet<ProductGroup> ProductGroups { get; }
     DbSet<Godown> Godowns { get; }
+    DbSet<Rack> Racks { get; }
     DbSet<Stock> Stocks { get; }
     DbSet<PurchaseInvoice> PurchaseInvoices { get; }
+    DbSet<PurchaseInvoiceDetail> PurchaseInvoiceDetails { get; }
+    DbSet<PurchaseQuotation> PurchaseQuotations { get; }
+    DbSet<PurchaseQuotationDetail> PurchaseQuotationDetails { get; }
+    DbSet<PurchaseOrder> PurchaseOrders { get; }
+    DbSet<PurchaseOrderDetail> PurchaseOrderDetails { get; }
+    DbSet<ReceiptNote> ReceiptNotes { get; }
+    DbSet<ReceiptNoteDetail> ReceiptNoteDetails { get; }
+    DbSet<PurchaseReturn> PurchaseReturns { get; }
+    DbSet<PurchaseReturnDetail> PurchaseReturnDetails { get; }
+    DbSet<PurchaseDebitNote> PurchaseDebitNotes { get; }
+    DbSet<PurchaseCreditNote> PurchaseCreditNotes { get; }
     DbSet<SalesInvoice> SalesInvoices { get; }
+    DbSet<SalesInvoiceDetail> SalesInvoiceDetails { get; }
+    DbSet<SalesQuotation> SalesQuotations { get; }
+    DbSet<SalesQuotationDetail> SalesQuotationDetails { get; }
+    DbSet<SalesOrder> SalesOrders { get; }
+    DbSet<SalesOrderDetail> SalesOrderDetails { get; }
+    DbSet<SalesAllotment> SalesAllotments { get; }
+    DbSet<SalesReturn> SalesReturns { get; }
+    DbSet<SalesReturnDetail> SalesReturnDetails { get; }
+    DbSet<SalesDebitNote> SalesDebitNotes { get; }
+    DbSet<SalesCreditNote> SalesCreditNotes { get; }
+    DbSet<Indent> Indents { get; }
+    DbSet<IndentDetail> IndentDetails { get; }
+    DbSet<GatePass> GatePasses { get; }
+    DbSet<StockDemand> StockDemands { get; }
+    DbSet<StockJournal> StockJournals { get; }
+    DbSet<StockTransfer> StockTransfers { get; }
+    DbSet<LandedCost> LandedCosts { get; }
 
     // HR
     DbSet<Employee> Employees { get; }

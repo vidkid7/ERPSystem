@@ -305,3 +305,73 @@ public enum FiscalYearStatus
     Closed = 1,
     Locked = 2
 }
+
+public enum SalesQuotationStatus
+{
+    Draft = 0,
+    Pending = 1,
+    Approved = 2,
+    Rejected = 3,
+    Converted = 4,
+    Expired = 5,
+    Cancelled = 6
+}
+
+public enum SalesOrderStatus
+{
+    Draft = 0,
+    Pending = 1,
+    Approved = 2,
+    PartiallyDelivered = 3,
+    Delivered = 4,
+    Cancelled = 5
+}
+
+public enum SalesReturnStatus
+{
+    Draft = 0,
+    Pending = 1,
+    Approved = 2,
+    Completed = 3,
+    Cancelled = 4
+}
+
+public enum DebitCreditNoteStatus
+{
+    Draft = 0,
+    Pending = 1,
+    Approved = 2,
+    Cancelled = 3
+}
+
+public enum LandedCostAllocationType
+{
+    ByValue = 0,
+    ByQuantity = 1
+}
+
+public enum IndentPriority
+{
+    Low = 0,
+    Medium = 1,
+    High = 2,
+    Urgent = 3
+}
+
+public enum PurchaseDocumentStatus
+{
+    Draft = 0,
+    Pending = 1,
+    Approved = 2,
+    Rejected = 3,
+    Closed = 4,
+    Cancelled = 5
+}
+
+public enum PaymentModeType
+{
+    Cash = 0,
+    Cheque = 1,
+    BankTransfer = 2,
+    OnlinePayment = 3
+}
