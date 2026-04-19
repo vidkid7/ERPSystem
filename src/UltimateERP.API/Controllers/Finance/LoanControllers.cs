@@ -39,4 +39,36 @@ public class LoanController : ControllerBase
         var result = await _mediator.Send(new ProcessEMICommand(dto));
         return result.IsSuccess ? Ok(result) : BadRequest(result);
     }
+
+    [HttpPost("{loanId}/close")]
+    public async Task<ActionResult<ApiResponse<LoanDto>>> CloseLoan(int loanId)
+    {
+        var result = await _mediator.Send(new CloseLoanCommand(new CloseLoanDto { LoanId = loanId }));
+        return result.IsSuccess ? Ok(result) : BadRequest(result);
+    }
+
+    [HttpPost("emi/{id}/rebate")]
+    public async Task<ActionResult<ApiResponse<LoanEMIDto>>> ApplyRebate(int id, [FromBody] ApplyAdjustmentDto dto)
+    {
+        dto.LoanEMIId = id;
+        var result = await _mediator.Send(new ApplyRebateCommand(dto));
+        return result.IsSuccess ? Ok(result) : BadRequest(result);
+    }
+
+    [HttpPost("emi/{id}/penalty")]
+    public async Task<ActionResult<ApiResponse<LoanEMIDto>>> ApplyPenalty(int id, [FromBody] ApplyAdjustmentDto dto)
+    {
+        dto.LoanEMIId = id;
+        var result = await _mediator.Send(new ApplyPenaltyCommand(dto));
+        return result.IsSuccess ? Ok(result) : BadRequest(result);
+    }
+
+    [HttpGet("overdue-emis")]
+    public async Task<ActionResult<ApiResponse<List<LoanEMIDto>>>> GetOverdueEMIs(
+        [FromQuery] int page = 1, [FromQuery] int pageSize = 20)
+        => Ok(await _mediator.Send(new GetOverdueEMIsQuery(page, pageSize)));
+
+    [HttpGet("summary")]
+    public async Task<ActionResult<ApiResponse<LoanSummaryDto>>> GetLoanSummary()
+        => Ok(await _mediator.Send(new GetLoanSummaryQuery()));
 }

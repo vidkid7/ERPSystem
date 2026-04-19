@@ -85,3 +85,69 @@ public class ProcessEMIHandler : IRequestHandler<ProcessEMICommand, ApiResponse<
         return ApiResponse<LoanEMIDto>.Success(_mapper.Map<LoanEMIDto>(emi), "EMI payment processed");
     }
 }
+
+// Close Loan
+public record CloseLoanCommand(CloseLoanDto Dto) : IRequest<ApiResponse<LoanDto>>;
+
+public class CloseLoanHandler : IRequestHandler<CloseLoanCommand, ApiResponse<LoanDto>>
+{
+    private readonly IApplicationDbContext _db;
+    private readonly IMapper _mapper;
+    public CloseLoanHandler(IApplicationDbContext db, IMapper mapper) { _db = db; _mapper = mapper; }
+
+    public async Task<ApiResponse<LoanDto>> Handle(CloseLoanCommand request, CancellationToken ct)
+    {
+        var loan = await _db.Loans.Include(l => l.EMIs)
+            .FirstOrDefaultAsync(l => l.Id == request.Dto.LoanId, ct);
+        if (loan is null) return ApiResponse<LoanDto>.Failure("Loan not found");
+
+        var unpaid = loan.EMIs.Any(e => e.Status != EMIStatus.Paid);
+        if (unpaid) return ApiResponse<LoanDto>.Failure("All EMIs must be paid before closing the loan");
+
+        loan.Status = LoanStatus.Closed;
+        await _db.SaveChangesAsync(ct);
+        return ApiResponse<LoanDto>.Success(_mapper.Map<LoanDto>(loan), "Loan closed successfully");
+    }
+}
+
+// Apply Rebate
+public record ApplyRebateCommand(ApplyAdjustmentDto Dto) : IRequest<ApiResponse<LoanEMIDto>>;
+
+public class ApplyRebateHandler : IRequestHandler<ApplyRebateCommand, ApiResponse<LoanEMIDto>>
+{
+    private readonly IApplicationDbContext _db;
+    private readonly IMapper _mapper;
+    public ApplyRebateHandler(IApplicationDbContext db, IMapper mapper) { _db = db; _mapper = mapper; }
+
+    public async Task<ApiResponse<LoanEMIDto>> Handle(ApplyRebateCommand request, CancellationToken ct)
+    {
+        var emi = await _db.LoanEMIs.Include(e => e.Loan)
+            .FirstOrDefaultAsync(e => e.Id == request.Dto.LoanEMIId, ct);
+        if (emi is null) return ApiResponse<LoanEMIDto>.Failure("EMI record not found");
+
+        emi.PaidAmount = Math.Max(0, emi.PaidAmount - request.Dto.Amount);
+        await _db.SaveChangesAsync(ct);
+        return ApiResponse<LoanEMIDto>.Success(_mapper.Map<LoanEMIDto>(emi), "Rebate applied successfully");
+    }
+}
+
+// Apply Penalty
+public record ApplyPenaltyCommand(ApplyAdjustmentDto Dto) : IRequest<ApiResponse<LoanEMIDto>>;
+
+public class ApplyPenaltyHandler : IRequestHandler<ApplyPenaltyCommand, ApiResponse<LoanEMIDto>>
+{
+    private readonly IApplicationDbContext _db;
+    private readonly IMapper _mapper;
+    public ApplyPenaltyHandler(IApplicationDbContext db, IMapper mapper) { _db = db; _mapper = mapper; }
+
+    public async Task<ApiResponse<LoanEMIDto>> Handle(ApplyPenaltyCommand request, CancellationToken ct)
+    {
+        var emi = await _db.LoanEMIs.Include(e => e.Loan)
+            .FirstOrDefaultAsync(e => e.Id == request.Dto.LoanEMIId, ct);
+        if (emi is null) return ApiResponse<LoanEMIDto>.Failure("EMI record not found");
+
+        emi.EMIAmount += request.Dto.Amount;
+        await _db.SaveChangesAsync(ct);
+        return ApiResponse<LoanEMIDto>.Success(_mapper.Map<LoanEMIDto>(emi), "Penalty applied successfully");
+    }
+}

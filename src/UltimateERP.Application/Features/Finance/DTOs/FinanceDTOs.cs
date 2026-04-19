@@ -51,3 +51,35 @@ public class ProcessEMIDto
     public decimal PaidAmount { get; set; }
     public DateTime PaidDate { get; set; }
 }
+
+public class LoanSummaryDto
+{
+    public decimal TotalDisbursed { get; set; }
+    public decimal TotalCollected { get; set; }
+    public decimal OutstandingBalance { get; set; }
+    public int OverdueCount { get; set; }
+    public int TotalLoans { get; set; }
+    public int ActiveLoans { get; set; }
+}
+
+public class CloseLoanDto
+{
+    public int LoanId { get; set; }
+}
+
+public class ApplyAdjustmentDto
+{
+    public int LoanEMIId { get; set; }
+    public decimal Amount { get; set; }
+    public string? Reason { get; set; }
+}
+
+public class EMIScheduleItemDto
+{
+    public int EMINumber { get; set; }
+    public DateTime DueDate { get; set; }
+    public decimal EMIAmount { get; set; }
+    public decimal PrincipalComponent { get; set; }
+    public decimal InterestComponent { get; set; }
+    public decimal OutstandingBalance { get; set; }
+}
