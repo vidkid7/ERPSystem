@@ -32,7 +32,7 @@ public class RegisterAssetHandler : IRequestHandler<RegisterAssetCommand, ApiRes
     public async Task<ApiResponse<AssetDto>> Handle(RegisterAssetCommand request, CancellationToken ct)
     {
         var dto = request.Asset;
-        var exists = await _db.Assets.AnyAsync(a => a.AssetCode == dto.AssetCode, ct);
+        var exists = await _db.AssetMasters.AnyAsync(a => a.AssetCode == dto.AssetCode, ct);
         if (exists) return ApiResponse<AssetDto>.Failure($"Asset code {dto.AssetCode} already exists");
 
         var asset = new AssetMaster
@@ -50,7 +50,7 @@ public class RegisterAssetHandler : IRequestHandler<RegisterAssetCommand, ApiRes
             Status = AssetStatus.Available
         };
 
-        _db.Assets.Add(asset);
+        _db.AssetMasters.Add(asset);
         await _db.SaveChangesAsync(ct);
         return ApiResponse<AssetDto>.Success(_mapper.Map<AssetDto>(asset), "Asset registered");
     }
@@ -66,7 +66,7 @@ public class CalculateDepreciationHandler : IRequestHandler<CalculateDepreciatio
 
     public async Task<ApiResponse<DepreciationResultDto>> Handle(CalculateDepreciationCommand request, CancellationToken ct)
     {
-        var asset = await _db.Assets.FindAsync(new object[] { request.AssetId }, ct);
+        var asset = await _db.AssetMasters.FindAsync(new object[] { request.AssetId }, ct);
         if (asset is null) return ApiResponse<DepreciationResultDto>.Failure("Asset not found");
         if (request.UsefulLifeYears <= 0) return ApiResponse<DepreciationResultDto>.Failure("Useful life must be greater than 0");
 

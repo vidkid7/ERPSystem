@@ -375,3 +375,21 @@ public enum PaymentModeType
     BankTransfer = 2,
     OnlinePayment = 3
 }
+
+public enum DepreciationMethod
+{
+    StraightLine = 0,
+    DecliningBalance = 1,
+    UnitsOfProduction = 2
+}
+
+public enum AssetTransactionType
+{
+    Inward = 0,
+    Issue = 1,
+    Transfer = 2,
+    Return = 3,
+    Damage = 4,
+    Repair = 5,
+    Disposal = 6
+}

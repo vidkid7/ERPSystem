@@ -140,7 +140,13 @@ public interface IApplicationDbContext
     DbSet<LabReport> LabReports { get; }
 
     // Assets
-    DbSet<AssetMaster> Assets { get; }
+    DbSet<AssetMaster> AssetMasters { get; }
+    DbSet<AssetGroup> AssetGroups { get; }
+    DbSet<AssetType> AssetTypes { get; }
+    DbSet<AssetModel> AssetModels { get; }
+    DbSet<Asset> Assets { get; }
+    DbSet<AssetCategory> AssetCategories { get; }
+    DbSet<AssetTransaction> AssetTransactions { get; }
 
     // Dispatch
     DbSet<DispatchOrder> DispatchOrders { get; }

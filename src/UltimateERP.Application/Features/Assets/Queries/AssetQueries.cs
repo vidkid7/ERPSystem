@@ -19,7 +19,7 @@ public class GetAssetsHandler : IRequestHandler<GetAssetsQuery, ApiResponse<List
 
     public async Task<ApiResponse<List<AssetDto>>> Handle(GetAssetsQuery request, CancellationToken ct)
     {
-        var query = _db.Assets
+        var query = _db.AssetMasters
             .Include(a => a.Vendor)
             .AsQueryable();
 

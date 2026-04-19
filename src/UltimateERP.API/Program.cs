@@ -106,6 +106,14 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+// Seed data in development
+if (app.Environment.IsDevelopment())
+{
+    using var scope = app.Services.CreateScope();
+    var dbContext = scope.ServiceProvider.GetRequiredService<UltimateERP.Infrastructure.Persistence.ERPDbContext>();
+    await UltimateERP.Infrastructure.Persistence.DbSeeder.SeedAsync(dbContext);
+}
+
 // Health check endpoints
 app.MapHealthChecks("/health", new Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions
 {

@@ -11,10 +11,10 @@ namespace UltimateERP.API.Controllers.Assets;
 [ApiController]
 [Route("api/assets/[controller]")]
 [Authorize]
-public class AssetController : ControllerBase
+public class AssetMasterController : ControllerBase
 {
     private readonly IMediator _mediator;
-    public AssetController(IMediator mediator) => _mediator = mediator;
+    public AssetMasterController(IMediator mediator) => _mediator = mediator;
 
     [HttpGet]
     public async Task<ActionResult<ApiResponse<List<AssetDto>>>> GetAll(

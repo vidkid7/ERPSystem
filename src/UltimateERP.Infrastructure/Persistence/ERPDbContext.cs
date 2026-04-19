@@ -110,9 +110,15 @@ public class ERPDbContext : DbContext, IApplicationDbContext
     public DbSet<ExpenseClaim> ExpenseClaims => Set<ExpenseClaim>();
 
     // ── Assets ───────────────────────────────────────────────────────────
-    public DbSet<AssetMaster> Assets => Set<AssetMaster>();
+    public DbSet<AssetMaster> AssetMasters => Set<AssetMaster>();
     public DbSet<AssetIssue> AssetIssues => Set<AssetIssue>();
     public DbSet<AssetTransfer> AssetTransfers => Set<AssetTransfer>();
+    public DbSet<AssetGroup> AssetGroups => Set<AssetGroup>();
+    public DbSet<AssetType> AssetTypes => Set<AssetType>();
+    public DbSet<AssetModel> AssetModels => Set<AssetModel>();
+    public DbSet<Asset> Assets => Set<Asset>();
+    public DbSet<AssetCategory> AssetCategories => Set<AssetCategory>();
+    public DbSet<AssetTransaction> AssetTransactions => Set<AssetTransaction>();
 
     // ── Lab ──────────────────────────────────────────────────────────────
     public DbSet<SampleCollection> SampleCollections => Set<SampleCollection>();
