@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/UltimateERP.API/UltimateERP.API.csproj" />
+    <Project Path="src/UltimateERP.Application/UltimateERP.Application.csproj" />
+    <Project Path="src/UltimateERP.Domain/UltimateERP.Domain.csproj" />
+    <Project Path="src/UltimateERP.Infrastructure/UltimateERP.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/UltimateERP.Tests/UltimateERP.Tests.csproj" />
+  </Folder>
+</Solution>
