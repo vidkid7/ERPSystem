@@ -8,25 +8,56 @@ import AppLayout from '../components/layout/AppLayout';
 import LoginPage from '../pages/auth/LoginPage';
 import DashboardPage from '../pages/dashboard/DashboardPage';
 
-// Account
+// Account - Masters
 import LedgerListPage from '../pages/account/LedgerListPage';
 import LedgerFormPage from '../pages/account/LedgerFormPage';
-import VoucherListPage from '../pages/account/VoucherListPage';
-import VoucherFormPage from '../pages/account/VoucherFormPage';
 import CustomerListPage from '../pages/account/CustomerListPage';
 import VendorListPage from '../pages/account/VendorListPage';
+import PaymentTermsListPage from '../pages/account/PaymentTermsListPage';
+import PaymentModeListPage from '../pages/account/PaymentModeListPage';
 
-// Inventory
+// Account - Vouchers
+import VoucherListPage from '../pages/account/VoucherListPage';
+import VoucherFormPage from '../pages/account/VoucherFormPage';
+import ReceiptVoucherPage from '../pages/account/ReceiptVoucherPage';
+import PaymentVoucherPage from '../pages/account/PaymentVoucherPage';
+import JournalVoucherPage from '../pages/account/JournalVoucherPage';
+import ContraVoucherPage from '../pages/account/ContraVoucherPage';
+import DebitNotePage from '../pages/account/DebitNotePage';
+import CreditNotePage from '../pages/account/CreditNotePage';
+import BankReconciliationPage from '../pages/account/BankReconciliationPage';
+
+// Inventory - Masters
 import ProductListPage from '../pages/inventory/ProductListPage';
 import ProductFormPage from '../pages/inventory/ProductFormPage';
 import GodownListPage from '../pages/inventory/GodownListPage';
 import StockListPage from '../pages/inventory/StockListPage';
+import ProductBrandListPage from '../pages/inventory/ProductBrandListPage';
+import UnitListPage from '../pages/inventory/UnitListPage';
+import RackListPage from '../pages/inventory/RackListPage';
+import IndentListPage from '../pages/inventory/IndentListPage';
+import GatePassListPage from '../pages/inventory/GatePassListPage';
 
-// Purchase & Sales
+// Purchase Cycle
 import PurchaseListPage from '../pages/purchase/PurchaseListPage';
 import PurchaseFormPage from '../pages/purchase/PurchaseFormPage';
+import PurchaseQuotationListPage from '../pages/purchase/PurchaseQuotationListPage';
+import PurchaseQuotationFormPage from '../pages/purchase/PurchaseQuotationFormPage';
+import PurchaseOrderListPage from '../pages/purchase/PurchaseOrderListPage';
+import PurchaseOrderFormPage from '../pages/purchase/PurchaseOrderFormPage';
+import ReceiptNoteListPage from '../pages/purchase/ReceiptNoteListPage';
+import ReceiptNoteFormPage from '../pages/purchase/ReceiptNoteFormPage';
+import PurchaseReturnListPage from '../pages/purchase/PurchaseReturnListPage';
+
+// Sales Cycle
 import SalesListPage from '../pages/sales/SalesListPage';
 import SalesFormPage from '../pages/sales/SalesFormPage';
+import SalesQuotationListPage from '../pages/sales/SalesQuotationListPage';
+import SalesQuotationFormPage from '../pages/sales/SalesQuotationFormPage';
+import SalesOrderListPage from '../pages/sales/SalesOrderListPage';
+import SalesOrderFormPage from '../pages/sales/SalesOrderFormPage';
+import SalesDeliveryListPage from '../pages/sales/SalesDeliveryListPage';
+import SalesReturnListPage from '../pages/sales/SalesReturnListPage';
 
 // HR
 import EmployeeListPage from '../pages/hr/EmployeeListPage';
@@ -73,6 +104,11 @@ import PointsListPage from '../pages/loyalty/PointsListPage';
 import TrialBalancePage from '../pages/reports/TrialBalancePage';
 import DayBookPage from '../pages/reports/DayBookPage';
 import LedgerStatementPage from '../pages/reports/LedgerStatementPage';
+import BalanceSheetPage from '../pages/reports/BalanceSheetPage';
+import ProfitLossPage from '../pages/reports/ProfitLossPage';
+import CashFlowPage from '../pages/reports/CashFlowPage';
+import StockAgingPage from '../pages/reports/StockAgingPage';
+import SalesAnalysisPage from '../pages/reports/SalesAnalysisPage';
 
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const isAuthenticated = useSelector((s: RootState) => s.auth.isAuthenticated);
@@ -88,27 +124,58 @@ const AppRouter: React.FC = () => {
           <Route index element={<Navigate to="/dashboard" replace />} />
           <Route path="dashboard" element={<DashboardPage />} />
 
-          {/* Account */}
+          {/* Account - Masters */}
           <Route path="account/ledgers" element={<LedgerListPage />} />
           <Route path="account/ledgers/new" element={<LedgerFormPage />} />
           <Route path="account/ledgers/:id" element={<LedgerFormPage />} />
-          <Route path="account/vouchers" element={<VoucherListPage />} />
-          <Route path="account/vouchers/new" element={<VoucherFormPage />} />
           <Route path="account/customers" element={<CustomerListPage />} />
           <Route path="account/vendors" element={<VendorListPage />} />
+          <Route path="account/payment-terms" element={<PaymentTermsListPage />} />
+          <Route path="account/payment-modes" element={<PaymentModeListPage />} />
 
-          {/* Inventory */}
+          {/* Account - Vouchers */}
+          <Route path="account/vouchers" element={<VoucherListPage />} />
+          <Route path="account/vouchers/new" element={<VoucherFormPage />} />
+          <Route path="account/vouchers/receipt" element={<ReceiptVoucherPage />} />
+          <Route path="account/vouchers/payment" element={<PaymentVoucherPage />} />
+          <Route path="account/vouchers/journal" element={<JournalVoucherPage />} />
+          <Route path="account/vouchers/contra" element={<ContraVoucherPage />} />
+          <Route path="account/vouchers/debit-note" element={<DebitNotePage />} />
+          <Route path="account/vouchers/credit-note" element={<CreditNotePage />} />
+          <Route path="account/bank-reconciliation" element={<BankReconciliationPage />} />
+
+          {/* Inventory - Masters */}
           <Route path="inventory/products" element={<ProductListPage />} />
           <Route path="inventory/products/new" element={<ProductFormPage />} />
           <Route path="inventory/products/:id" element={<ProductFormPage />} />
           <Route path="inventory/godowns" element={<GodownListPage />} />
           <Route path="inventory/stock" element={<StockListPage />} />
+          <Route path="inventory/brands" element={<ProductBrandListPage />} />
+          <Route path="inventory/units" element={<UnitListPage />} />
+          <Route path="inventory/racks" element={<RackListPage />} />
+          <Route path="inventory/indents" element={<IndentListPage />} />
+          <Route path="inventory/gate-passes" element={<GatePassListPage />} />
 
-          {/* Purchase & Sales */}
+          {/* Purchase Cycle */}
+          <Route path="purchase/quotations" element={<PurchaseQuotationListPage />} />
+          <Route path="purchase/quotations/new" element={<PurchaseQuotationFormPage />} />
+          <Route path="purchase/orders" element={<PurchaseOrderListPage />} />
+          <Route path="purchase/orders/new" element={<PurchaseOrderFormPage />} />
+          <Route path="purchase/receipt-notes" element={<ReceiptNoteListPage />} />
+          <Route path="purchase/receipt-notes/new" element={<ReceiptNoteFormPage />} />
           <Route path="purchase/invoices" element={<PurchaseListPage />} />
           <Route path="purchase/invoices/new" element={<PurchaseFormPage />} />
+          <Route path="purchase/returns" element={<PurchaseReturnListPage />} />
+
+          {/* Sales Cycle */}
+          <Route path="sales/quotations" element={<SalesQuotationListPage />} />
+          <Route path="sales/quotations/new" element={<SalesQuotationFormPage />} />
+          <Route path="sales/orders" element={<SalesOrderListPage />} />
+          <Route path="sales/orders/new" element={<SalesOrderFormPage />} />
+          <Route path="sales/deliveries" element={<SalesDeliveryListPage />} />
           <Route path="sales/invoices" element={<SalesListPage />} />
           <Route path="sales/invoices/new" element={<SalesFormPage />} />
+          <Route path="sales/returns" element={<SalesReturnListPage />} />
 
           {/* HR */}
           <Route path="hr/employees" element={<EmployeeListPage />} />
@@ -158,6 +225,11 @@ const AppRouter: React.FC = () => {
           <Route path="reports/trial-balance" element={<TrialBalancePage />} />
           <Route path="reports/day-book" element={<DayBookPage />} />
           <Route path="reports/ledger-statement" element={<LedgerStatementPage />} />
+          <Route path="reports/balance-sheet" element={<BalanceSheetPage />} />
+          <Route path="reports/profit-loss" element={<ProfitLossPage />} />
+          <Route path="reports/cash-flow" element={<CashFlowPage />} />
+          <Route path="reports/stock-aging" element={<StockAgingPage />} />
+          <Route path="reports/sales-analysis" element={<SalesAnalysisPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
