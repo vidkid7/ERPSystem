@@ -1,10 +1,17 @@
 using Microsoft.EntityFrameworkCore;
 using UltimateERP.Domain.Entities.Account;
+using UltimateERP.Domain.Entities.Assets;
+using UltimateERP.Domain.Entities.CMS;
+using UltimateERP.Domain.Entities.Finance;
 using UltimateERP.Domain.Entities.HMS;
 using UltimateERP.Domain.Entities.HR;
 using UltimateERP.Domain.Entities.Inventory;
+using UltimateERP.Domain.Entities.Lab;
+using UltimateERP.Domain.Entities.Loyalty;
 using UltimateERP.Domain.Entities.Security;
 using UltimateERP.Domain.Entities.Setup;
+using UltimateERP.Domain.Entities.Support;
+using UltimateERP.Domain.Entities.TaskModule;
 
 namespace UltimateERP.Application.Interfaces;
 
@@ -61,6 +68,31 @@ public interface IApplicationDbContext
     DbSet<Domain.Entities.Service.ComplaintTicket> ComplaintTickets { get; }
     DbSet<Domain.Entities.Service.JobCard> JobCards { get; }
     DbSet<Domain.Entities.Service.ServiceAppointment> ServiceAppointments { get; }
+
+    // Task
+    DbSet<TaskItem> TaskItems { get; }
+
+    // Finance
+    DbSet<Loan> Loans { get; }
+    DbSet<LoanEMI> LoanEMIs { get; }
+
+    // CMS
+    DbSet<Slider> Sliders { get; }
+    DbSet<Banner> Banners { get; }
+    DbSet<Notice> Notices { get; }
+
+    // Support
+    DbSet<SupportTicket> SupportTickets { get; }
+
+    // Loyalty
+    DbSet<MembershipPoint> MembershipPoints { get; }
+
+    // Lab
+    DbSet<SampleCollection> SampleCollections { get; }
+    DbSet<LabReport> LabReports { get; }
+
+    // Assets
+    DbSet<AssetMaster> Assets { get; }
 
     Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
 }
