@@ -5,6 +5,7 @@ using UltimateERP.Infrastructure;
 using UltimateERP.Domain.Interfaces;
 using UltimateERP.API.Common;
 using UltimateERP.API.Middleware;
+using UltimateERP.API.HealthChecks;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -78,9 +79,16 @@ builder.Services.AddCors(options =>
     });
 });
 
+// ── Health Checks ────────────────────────────────────────────────────────
+builder.Services.AddHealthChecks()
+    .AddCheck<DatabaseHealthCheck>("database")
+    .AddCheck<SystemHealthCheck>("system");
+
 var app = builder.Build();
 
 // ── Middleware Pipeline ──────────────────────────────────────────────────
+app.UseMiddleware<SecurityHeadersMiddleware>();
+app.UseMiddleware<RateLimitingMiddleware>();
 app.UseMiddleware<GlobalExceptionHandlerMiddleware>();
 
 if (app.Environment.IsDevelopment())
@@ -98,9 +106,46 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-// Health check endpoint
-app.MapGet("/health", () => Results.Ok(new { Status = "Healthy", Timestamp = DateTime.UtcNow }))
-   .WithName("HealthCheck")
-   .WithTags("System");
+// Health check endpoints
+app.MapHealthChecks("/health", new Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions
+{
+    Predicate = check => check.Name == "database",
+    ResponseWriter = async (context, report) =>
+    {
+        context.Response.ContentType = "application/json";
+        await context.Response.WriteAsJsonAsync(new
+        {
+            Status = report.Status.ToString(),
+            Timestamp = DateTime.UtcNow,
+            Checks = report.Entries.Select(e => new
+            {
+                Name = e.Key,
+                Status = e.Value.Status.ToString(),
+                Description = e.Value.Description
+            })
+        });
+    }
+}).WithTags("System");
+
+app.MapHealthChecks("/health/system", new Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions
+{
+    Predicate = check => check.Name == "system",
+    ResponseWriter = async (context, report) =>
+    {
+        context.Response.ContentType = "application/json";
+        await context.Response.WriteAsJsonAsync(new
+        {
+            Status = report.Status.ToString(),
+            Timestamp = DateTime.UtcNow,
+            Checks = report.Entries.Select(e => new
+            {
+                Name = e.Key,
+                Status = e.Value.Status.ToString(),
+                Description = e.Value.Description,
+                Data = e.Value.Data
+            })
+        });
+    }
+}).WithTags("System");
 
 app.Run();

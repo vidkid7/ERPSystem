@@ -6,6 +6,7 @@ using UltimateERP.Application.Interfaces;
 using UltimateERP.Application.Services;
 using UltimateERP.Domain.Interfaces;
 using UltimateERP.Infrastructure.Auth;
+using UltimateERP.Infrastructure.Caching;
 using UltimateERP.Infrastructure.ExternalServices;
 using UltimateERP.Infrastructure.Persistence;
 using UltimateERP.Infrastructure.Persistence.Interceptors;
@@ -37,6 +38,13 @@ public static class DependencyInjection
         services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
         services.AddScoped<IApplicationDbContext>(sp => sp.GetRequiredService<ERPDbContext>());
         services.AddSingleton<IDateTimeService, DateTimeService>();
+
+        // Caching
+        services.AddMemoryCache();
+        services.AddSingleton<ICacheService, MemoryCacheService>();
+
+        // Audit logging
+        services.AddScoped<IAuditLogService, AuditLogService>();
 
         // Nepal IRD integration
         services.AddHttpClient<IIRDApiClient, IRDApiClient>(client =>

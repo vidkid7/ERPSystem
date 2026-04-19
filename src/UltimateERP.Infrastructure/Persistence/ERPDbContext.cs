@@ -43,6 +43,7 @@ public class ERPDbContext : DbContext, IApplicationDbContext
     public DbSet<ModuleAccess> ModuleAccesses => Set<ModuleAccess>();
     public DbSet<BranchAccess> BranchAccesses => Set<BranchAccess>();
     public DbSet<GodownAccess> GodownAccesses => Set<GodownAccess>();
+    public DbSet<AuditLog> AuditLogs => Set<AuditLog>();
 
     // ── Account ──────────────────────────────────────────────────────────
     public DbSet<LedgerGroup> LedgerGroups => Set<LedgerGroup>();

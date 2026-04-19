@@ -25,6 +25,7 @@
     <ProjectReference Include="..\..\src\UltimateERP.Application\UltimateERP.Application.csproj" />
     <ProjectReference Include="..\..\src\UltimateERP.Infrastructure\UltimateERP.Infrastructure.csproj" />
     <ProjectReference Include="..\..\src\UltimateERP.Domain\UltimateERP.Domain.csproj" />
+    <ProjectReference Include="..\..\src\UltimateERP.API\UltimateERP.API.csproj" />
   </ItemGroup>
 
 </Project>

@@ -13,6 +13,7 @@ using UltimateERP.Domain.Entities.Security;
 using UltimateERP.Domain.Entities.Setup;
 using UltimateERP.Domain.Entities.Support;
 using UltimateERP.Domain.Entities.IndustrySpecific;
+using UltimateERP.Domain.Entities.Reporting;
 using UltimateERP.Domain.Entities.TaskModule;
 
 namespace UltimateERP.Application.Interfaces;
@@ -31,6 +32,7 @@ public interface IApplicationDbContext
     DbSet<ModuleAccess> ModuleAccesses { get; }
     DbSet<BranchAccess> BranchAccesses { get; }
     DbSet<GodownAccess> GodownAccesses { get; }
+    DbSet<AuditLog> AuditLogs { get; }
 
     // Setup
     DbSet<Branch> Branches { get; }
@@ -120,6 +122,9 @@ public interface IApplicationDbContext
 
     // KYC
     DbSet<KYCRecord> KYCRecords { get; }
+
+    // Reporting
+    DbSet<ReportWriterDefinition> ReportWriterDefinitions { get; }
 
     // Account - Fiscal Year
     DbSet<FiscalYear> FiscalYears { get; }
