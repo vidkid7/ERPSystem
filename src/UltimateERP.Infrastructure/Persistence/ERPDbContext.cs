@@ -56,6 +56,7 @@ public class ERPDbContext : DbContext, IApplicationDbContext
     public DbSet<BankGuarantee> BankGuarantees => Set<BankGuarantee>();
     public DbSet<LetterOfCredit> LettersOfCredit => Set<LetterOfCredit>();
     public DbSet<BankReconciliation> BankReconciliations => Set<BankReconciliation>();
+    public DbSet<FiscalYear> FiscalYears => Set<FiscalYear>();
 
     // ── Inventory ────────────────────────────────────────────────────────
     public DbSet<Product> Products => Set<Product>();
