@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using UltimateERP.Domain.Entities.Account;
+using UltimateERP.Domain.Entities.HR;
 using UltimateERP.Domain.Entities.Inventory;
 using UltimateERP.Domain.Entities.Security;
 using UltimateERP.Domain.Entities.Setup;
@@ -42,6 +43,12 @@ public interface IApplicationDbContext
     DbSet<Stock> Stocks { get; }
     DbSet<PurchaseInvoice> PurchaseInvoices { get; }
     DbSet<SalesInvoice> SalesInvoices { get; }
+
+    // HR
+    DbSet<Employee> Employees { get; }
+    DbSet<Attendance> Attendances { get; }
+    DbSet<Leave> Leaves { get; }
+    DbSet<ExpenseClaim> ExpenseClaims { get; }
 
     Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
 }
